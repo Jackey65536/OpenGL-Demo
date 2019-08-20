@@ -1,30 +1,32 @@
 // math3d.cpp
-// Math3D Library
+// Math3D Library, version 0.95
 
 /* Copyright (c) 2007-2009, Richard S. Wright Jr.
-MIT License
+All rights reserved.
 
-Copyright (c) 2007-2017 Richard S. Wright Jr.
+Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Redistributions of source code must retain the above copyright notice, this list 
+of conditions and the following disclaimer.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Redistributions in binary form must reproduce the above copyright notice, this list 
+of conditions and the following disclaimer in the documentation and/or other 
+materials provided with the distribution.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-Contact GitHub API Training Shop Blog About
+Neither the name of Richard S. Wright Jr. nor the names of other contributors may be used 
+to endorse or promote products derived from this software without specific prior 
+written permission.
 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES 
+OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT 
+SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED 
+TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR 
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN 
+ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 // Implementation file for the Math3d library. The C-Runtime has math.h, these routines 
@@ -40,26 +42,7 @@ Contact GitHub API Training Shop Blog About
 // Richard S. Wright Jr.
 
 // Most functions are in-lined... and are defined here
-#include "math3d.h"
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-// Rotates an XY coordiante around the origin. Rotation angle is in degrees for convienience. Positive angles rotate
-// counterclockwise around the origin. Negative angles rotate clockwise.
-void m3dPerform2DRotationOnPoint(const double inXY[2], double outXY[2], double rotDegrees)
-    {
-    M3DMatrix33d mRot;
-    double rotRadians = m3dRadToDeg(rotDegrees);
-    m3dRotationMatrix33(mRot, rotRadians, 0.0, 0.0, 1.0);
-    M3DVector3d vIn, vOut;
-    
-    vIn[0] = inXY[0];
-    vIn[1] = inXY[1];
-    vIn[2] = 0.0;
-    
-    m3dTransformVector3(vOut, vIn, mRot);
-    outXY[0] = vOut[0];
-    outXY[1] = vOut[1];
-    }
+#include <math3d.h>
 
 
 ////////////////////////////////////////////////////////////
@@ -663,23 +646,13 @@ void m3dFindNormal(M3DVector3f result, const M3DVector3f point1, const M3DVector
 
 	// Calculate two vectors from the three points. Assumes counter clockwise
 	// winding!
-//	v1[0] = point1[0] - point2[0];
-//	v1[1] = point1[1] - point2[1];
-//	v1[2] = point1[2] - point2[2];
-//
-//	v2[0] = point2[0] - point3[0];
-//	v2[1] = point2[1] - point3[1];
-//	v2[2] = point2[2] - point3[2];
+	v1[0] = point1[0] - point2[0];
+	v1[1] = point1[1] - point2[1];
+	v1[2] = point1[2] - point2[2];
 
-
-	v1[0] = point2[0] - point1[0];
-	v1[1] = point2[1] - point1[1];
-	v1[2] = point2[2] - point1[2];
-
-	v2[0] = point3[0] - point1[0];
-	v2[1] = point3[1] - point1[1];
-	v2[2] = point3[2] - point1[2];
-
+	v2[0] = point2[0] - point3[0];
+	v2[1] = point2[1] - point3[1];
+	v2[2] = point2[2] - point3[2];
 
 	// Take the cross product of the two vectors to get
 	// the normal vector.
@@ -790,29 +763,6 @@ void m3dCatmullRom(M3DVector3f vOut, const M3DVector3f vP0, const M3DVector3f vP
                        (-vP0[2] + 3.0f*vP1[2] - 3.0f *vP2[2] + vP3[2]) * t3);
     }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////
-// This function does a two dimensional Catmull-Rom curve interpolation. Pass four points, and a
-// floating point number between 0.0 and 1.0. The curve is interpolated between the middle two points.
-// Coded by RSW
-void m3dCatmullRom2D(M3DVector2f vOut, const M3DVector2f vP0, const M3DVector2f vP1, const M3DVector2f vP2, const M3DVector2f vP3, float t)
-    {
-    float t2 = t * t;
-    float t3 = t2 * t;
-
-    // X    
-    vOut[0] = 0.5 * ( ( 2.0 * vP1[0]) +
-                       (-vP0[0] + vP2[0]) * t +
-                       (2.0 * vP0[0] - 5.0 *vP1[0] + 4.0 * vP2[0] - vP3[0]) * t2 +
-                       (-vP0[0] + 3.0*vP1[0] - 3.0 *vP2[0] + vP3[0]) * t3);
-    // Y
-    vOut[1] = 0.5 * ( ( 2.0 * vP1[1]) +
-                       (-vP0[1] + vP2[1]) * t +
-                       (2.0 * vP0[1] - 5.0 *vP1[1] + 4.0 * vP2[1] - vP3[1]) * t2 +
-                       (-vP0[1] + 3*vP1[1] - 3.0 *vP2[1] + vP3[1]) * t3);
-
-    }
-
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // This function does a three dimensional Catmull-Rom curve interpolation. Pass four points, and a
@@ -839,29 +789,6 @@ void m3dCatmullRom(M3DVector3d vOut, const M3DVector3d vP0, const M3DVector3d vP
                        (-vP0[2] + vP2[2]) * t +
                        (2.0 * vP0[2] - 5.0 *vP1[2] + 4.0 * vP2[2] - vP3[2]) * t2 +
                        (-vP0[2] + 3.0*vP1[2] - 3.0 *vP2[2] + vP3[2]) * t3);
-    }
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-// This function does a two dimensional Catmull-Rom curve interpolation. Pass four points, and a
-// floating point number between 0.0 and 1.0. The curve is interpolated between the middle two points.
-// Coded by RSW
-void m3dCatmullRom2D(M3DVector2d vOut, const M3DVector2d vP0, const M3DVector2d vP1, const M3DVector2d vP2, const M3DVector2d vP3, double t)
-    {
-    double t2 = t * t;
-    double t3 = t2 * t;
-
-    // X    
-    vOut[0] = 0.5 * ( ( 2.0 * vP1[0]) +
-                       (-vP0[0] + vP2[0]) * t +
-                       (2.0 * vP0[0] - 5.0 *vP1[0] + 4.0 * vP2[0] - vP3[0]) * t2 +
-                       (-vP0[0] + 3.0*vP1[0] - 3.0 *vP2[0] + vP3[0]) * t3);
-    // Y
-    vOut[1] = 0.5 * ( ( 2.0 * vP1[1]) +
-                       (-vP0[1] + vP2[1]) * t +
-                       (2.0 * vP0[1] - 5.0 *vP1[1] + 4.0 * vP2[1] - vP3[1]) * t2 +
-                       (-vP0[1] + 3*vP1[1] - 3.0 *vP2[1] + vP3[1]) * t3);
-
     }
 
 
@@ -1034,7 +961,7 @@ void m3dMakePlanarShadowMatrix(M3DMatrix44f proj, const M3DVector4f planeEq, con
 // Creae a projection to "squish" an object into the plane.
 // Use m3dGetPlaneEquationd(planeEq, point1, point2, point3);
 // to get a plane equation.
-void m3dMakePlanarShadowMatrix(M3DMatrix44d proj, const M3DVector4d planeEq, const M3DVector3d vLightPos)
+void m3dMakePlanarShadowMatrix(M3DMatrix44d proj, const M3DVector4d planeEq, const M3DVector3f vLightPos)
 	{
 	// These just make the code below easier to read. They will be 
 	// removed by the optimizer.	

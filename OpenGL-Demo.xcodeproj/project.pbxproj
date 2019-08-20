@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DBAD14D230C2AE000E27CEC /* GLTriangleBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBAD149230C2ADF00E27CEC /* GLTriangleBatch.cpp */; };
+		0DBAD14E230C2AE000E27CEC /* GLShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBAD14A230C2ADF00E27CEC /* GLShaderManager.cpp */; };
+		0DBAD14F230C2AE000E27CEC /* GLBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBAD14B230C2ADF00E27CEC /* GLBatch.cpp */; };
+		0DBAD150230C2AE000E27CEC /* GLTools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBAD14C230C2ADF00E27CEC /* GLTools.cpp */; };
 		0DDBD9B72308652B0087A48A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDBD9B62308652B0087A48A /* OpenGL.framework */; };
 		0DDBD9B9230865320087A48A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDBD9B8230865320087A48A /* GLUT.framework */; };
 		0DDBD9BB2308653F0087A48A /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDBD9BA2308653F0087A48A /* libGLTools.a */; };
@@ -73,6 +77,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DBAD149230C2ADF00E27CEC /* GLTriangleBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLTriangleBatch.cpp; sourceTree = "<group>"; };
+		0DBAD14A230C2ADF00E27CEC /* GLShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLShaderManager.cpp; sourceTree = "<group>"; };
+		0DBAD14B230C2ADF00E27CEC /* GLBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLBatch.cpp; sourceTree = "<group>"; };
+		0DBAD14C230C2ADF00E27CEC /* GLTools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLTools.cpp; sourceTree = "<group>"; };
+		0DBAD155230C327800E27CEC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0DDBD982230864BA0087A48A /* OpenGL-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenGL-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DDBD990230864BA0087A48A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DDBD993230864BA0087A48A /* OpenGL_Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenGL_Demo.entitlements; sourceTree = "<group>"; };
@@ -191,10 +200,11 @@
 			children = (
 				0DDBD9DB230865520087A48A /* demo */,
 				0DDBD9BD230865520087A48A /* include */,
-				0DDBD9BC230865520087A48A /* main.cpp */,
 				0DDBD9F6230865520087A48A /* src */,
+				0DDBD9BC230865520087A48A /* main.cpp */,
 				0DDBD990230864BA0087A48A /* Info.plist */,
 				0DDBD993230864BA0087A48A /* OpenGL_Demo.entitlements */,
+				0DBAD155230C327800E27CEC /* README.md */,
 			);
 			path = "OpenGL-Demo";
 			sourceTree = "<group>";
@@ -212,6 +222,10 @@
 		0DDBD9BD230865520087A48A /* include */ = {
 			isa = PBXGroup;
 			children = (
+				0DBAD14B230C2ADF00E27CEC /* GLBatch.cpp */,
+				0DBAD14A230C2ADF00E27CEC /* GLShaderManager.cpp */,
+				0DBAD14C230C2ADF00E27CEC /* GLTools.cpp */,
+				0DBAD149230C2ADF00E27CEC /* GLTriangleBatch.cpp */,
 				0DDBD9CB230865520087A48A /* GL */,
 				0DDBD9CF230865520087A48A /* GLBatch.h */,
 				0DDBD9D0230865520087A48A /* GLBatchBase.h */,
@@ -623,8 +637,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DDBDA4B230865530087A48A /* pyramid.cpp in Sources */,
+				0DBAD14D230C2AE000E27CEC /* GLTriangleBatch.cpp in Sources */,
 				0DDBDA47230865530087A48A /* objects.cpp in Sources */,
 				0DDBDA4D230865530087A48A /* smoother.cpp in Sources */,
+				0DBAD14E230C2AE000E27CEC /* GLShaderManager.cpp in Sources */,
 				0DDBDA46230865530087A48A /* movebymatrix.cpp in Sources */,
 				0DDBDA54230865530087A48A /* tunnel.cpp in Sources */,
 				0DDBDA60230865530087A48A /* lstipple.cpp in Sources */,
@@ -645,6 +661,7 @@
 				0DDBDA6A230865530087A48A /* Atom.cpp in Sources */,
 				0DDBDA33230865530087A48A /* main.cpp in Sources */,
 				0DDBDA49230865530087A48A /* perspective.cpp in Sources */,
+				0DBAD14F230C2AE000E27CEC /* GLBatch.cpp in Sources */,
 				0DDBDA5A230865530087A48A /* bounce.cpp in Sources */,
 				0DDBDA45230865530087A48A /* move.cpp in Sources */,
 				0DDBDA52230865530087A48A /* sphere5.cpp in Sources */,
@@ -658,6 +675,7 @@
 				0DDBDA40230865530087A48A /* geotest.cpp in Sources */,
 				0DDBDA6B230865530087A48A /* atom2.cpp in Sources */,
 				0DDBDA5F230865530087A48A /* linesw.cpp in Sources */,
+				0DBAD150230C2AE000E27CEC /* GLTools.cpp in Sources */,
 				0DDBDA43230865530087A48A /* modelview_projection.cpp in Sources */,
 				0DDBDA5B230865530087A48A /* glrect.cpp in Sources */,
 				0DDBDA4C230865530087A48A /* scissor.cpp in Sources */,
