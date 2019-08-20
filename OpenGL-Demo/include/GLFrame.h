@@ -234,6 +234,90 @@ class GLFrame
             memcpy(m, M, sizeof(float)*16);
             }
 
+        /////////////////////////////////////////////////////////////
+        // Get a 4x4 transformation matrix that describes the ccamera
+        // orientation.
+        inline void GetCameraOrientation(M3DMatrix44f m)
+        {
+            M3DVector3f x, z;
+            
+            // Make rotation matrix
+            // Z vector is reversed
+            z[0] = -vForward[0];
+            z[1] = -vForward[1];
+            z[2] = -vForward[2];
+            
+            // X vector = Y cross Z
+            m3dCrossProduct3(x, vUp, z);
+            
+            // Matrix has no translation information and is
+            // transposed.... (rows instead of columns)
+        #define M(row,col)  m[col*4+row]
+            M(0, 0) = x[0];
+            M(0, 1) = x[1];
+            M(0, 2) = x[2];
+            M(0, 3) = 0.0;
+            M(1, 0) = vUp[0];
+            M(1, 1) = vUp[1];
+            M(1, 2) = vUp[2];
+            M(1, 3) = 0.0;
+            M(2, 0) = z[0];
+            M(2, 1) = z[1];
+            M(2, 2) = z[2];
+            M(2, 3) = 0.0;
+            M(3, 0) = 0.0;
+            M(3, 1) = 0.0;
+            M(3, 2) = 0.0;
+            M(3, 3) = 1.0;
+        #undef M
+        }
+        
+        
+        /////////////////////////////////////////////////////////////
+        // Perform viewing or modeling transformations
+        // Position as the camera (for viewing). Apply this transformation
+        // first as your viewing transformation
+        // The default implementation of gluLookAt can be considerably sped up
+        // since it uses doubles for everything... then again profile before you
+        // tune... ;-) You might get a boost form page fault reduction too... if
+        // no other glu routines are used...
+        // This will get called once per frame.... go ahead and inline
+        inline void ApplyCameraTransform(bool bRotOnly = false)
+        {
+            M3DMatrix44f m;
+            
+            GetCameraOrientation(m);
+            
+            // Camera Transform
+            glMultMatrixf(m);
+            
+            // If Rotation only, then do not do the translation
+            if(!bRotOnly)
+                glTranslatef(-vOrigin[0], -vOrigin[1], -vOrigin[2]);
+            
+            /*gluLookAt(vOrigin[0], vOrigin[1], vOrigin[2],
+             vOrigin[0] + vForward[0],
+             vOrigin[1] + vForward[1],
+             vOrigin[2] + vForward[2],
+             vUp[0], vUp[1], vUp[2]);
+             */
+        }
+        
+        
+        // Position as an object in the scene. This places and orients a
+        // coordinate frame for other objects (besides the camera)
+        // There is ample room for optimization here...
+        // This is going to be called alot... don't inline
+        // Add flag to perform actor rotation only and not the translation
+        void ApplyActorTransform(bool bRotationOnly = false)
+        {
+            M3DMatrix44f rotMat;
+            
+            GetMatrix(rotMat, bRotationOnly);
+            
+            // Apply rotation to the current matrix
+            glMultMatrixf(rotMat);
+        }
 
 		// Rotate around local Y
         void RotateLocalY(float fAngle)
