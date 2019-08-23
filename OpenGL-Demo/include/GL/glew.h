@@ -1147,6 +1147,7 @@ GLAPI void GLAPIENTRY glTexParameteri (GLenum target, GLenum pname, GLint param)
 GLAPI void GLAPIENTRY glTexParameteriv (GLenum target, GLenum pname, const GLint *params);
 GLAPI void GLAPIENTRY glTexSubImage1D (GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLenum type, const GLvoid *pixels);
 GLAPI void GLAPIENTRY glTexSubImage2D (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, const GLvoid *pixels);
+// 定义一个平移矩阵，该矩阵与当前矩阵相乘，使后续的图形进行平移变换
 GLAPI void GLAPIENTRY glTranslated (GLdouble x, GLdouble y, GLdouble z);
 GLAPI void GLAPIENTRY glTranslatef (GLfloat x, GLfloat y, GLfloat z);
 GLAPI void GLAPIENTRY glVertex2d (GLdouble x, GLdouble y);
