@@ -308,6 +308,7 @@ typedef char GLchar;
 #define GL_TRIANGLE_STRIP 0x0005
 // 以一个圆点为中心呈扇形排列，共用相邻顶点的一组三角形
 #define GL_TRIANGLE_FAN 0x0006
+// 连续点生成四边形
 #define GL_QUADS 0x0007
 #define GL_QUAD_STRIP 0x0008
 #define GL_POLYGON_BIT 0x00000008
@@ -376,7 +377,9 @@ typedef char GLchar;
 #define GL_EXP 0x0800
 #define GL_VIEWPORT_BIT 0x00000800
 #define GL_EXP2 0x0801
+// CounterClockWise 逆时针
 #define GL_CW 0x0900
+// ClockWise 顺时针
 #define GL_CCW 0x0901
 #define GL_COEFF 0x0A00
 #define GL_ORDER 0x0A01
@@ -978,10 +981,12 @@ GLAPI void GLAPIENTRY glInterleavedArrays (GLenum format, GLsizei stride, const 
 GLAPI GLboolean GLAPIENTRY glIsEnabled (GLenum cap);
 GLAPI GLboolean GLAPIENTRY glIsList (GLuint list);
 GLAPI GLboolean GLAPIENTRY glIsTexture (GLuint texture);
+// 设置光照模型参数
 GLAPI void GLAPIENTRY glLightModelf (GLenum pname, GLfloat param);
 GLAPI void GLAPIENTRY glLightModelfv (GLenum pname, const GLfloat *params);
 GLAPI void GLAPIENTRY glLightModeli (GLenum pname, GLint param);
 GLAPI void GLAPIENTRY glLightModeliv (GLenum pname, const GLint *params);
+// 创建光源
 GLAPI void GLAPIENTRY glLightf (GLenum light, GLenum pname, GLfloat param);
 GLAPI void GLAPIENTRY glLightfv (GLenum light, GLenum pname, const GLfloat *params);
 GLAPI void GLAPIENTRY glLighti (GLenum light, GLenum pname, GLint param);
