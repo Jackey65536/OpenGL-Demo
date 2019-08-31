@@ -44,6 +44,7 @@ enum GLT_STACK_ERROR { GLT_STACK_NOERROR = 0, GLT_STACK_OVERFLOW, GLT_STACK_UNDE
 class GLMatrixStack
 	{
 	public:
+        // 初始化时已经在堆栈中包含了单位矩阵
 		GLMatrixStack(int iStackDepth = 64) {
 			stackDepth = iStackDepth;
 			pStack = new M3DMatrix44f[iStackDepth];
@@ -57,11 +58,12 @@ class GLMatrixStack
 			delete [] pStack;
 			}
 
-		
+		// 在堆栈顶部载入这个单位矩阵
 		inline void LoadIdentity(void) { 
 			m3dLoadIdentity44(pStack[stackPointer]); 
 			}
 		
+        // 在堆栈顶部载入任何矩阵
 		inline void LoadMatrix(const M3DMatrix44f mMatrix) { 
 			m3dCopyMatrix44(pStack[stackPointer], mMatrix); 
 			}
@@ -72,6 +74,7 @@ class GLMatrixStack
             LoadMatrix(m);
             }
 
+        // 用一个矩阵乘以矩阵堆栈的顶部矩阵，相乘得到的结果随后将存储在堆栈的顶部
 		inline void MultMatrix(const M3DMatrix44f mMatrix) {
 			M3DMatrix44f mTemp;
 			m3dCopyMatrix44(mTemp, pStack[stackPointer]);

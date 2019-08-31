@@ -41,7 +41,13 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF S
 /*
  GLFrame叫参考帧，其中存储了1个世界坐标点和2个世界坐标下的方向向量，也就是9个GLfloat值，分别用来表示：当前为支点，向前方向向量，向上方向向量
  GLFrame可以表示世界坐标系中任意物体的位置与方向。无论是相机还是模型，都可以使用GLFrame来表示。对任意一个使用GLFrame来表示的物体而言，
- 涉及到的坐标系有两个：永远不变的世界坐标系，针对于自身的物体坐标系（即绘图坐标系）
+ 涉及到的坐标系有两个：永远不变的世界坐标系，针对于自身的物体坐标系（即绘图坐标系）。
+ 一般来说，针对于物体自身的物体坐标系有如下特点：X轴永远平行于视口的水平方向，+X的方向根据右手定则由+Y与+Z得出；Y轴永远平行于视口的竖直方向，
+ 竖直向上为+Y；Z轴永远平行于视口的垂直纸面向里方向，正前方为+Z。也就是说，在世界坐标系中，物体坐标系的Y轴看上去就是GLFrame的向上方向向量，
+ Z轴看上去就是GLFrame的向前方向向量，而X轴由Y轴方向向量与Z轴方向向量根据右手定则可得出。
+ 实际上，GLFrame就是一系列的变换。由GLFrame可以得出变换矩阵，只要与该变换矩阵相乘，任何物体都可以进行GLFrame所指定的变换。GLFrame会将
+ 物体坐标系(也就是当前绘图坐标系)做指定变换，在变换完成后我们就可以进行指定的绘制操作。比如有两个物体A与B，根据A的GLFrame导出变换矩阵Ma，
+ 然后令变换矩阵与B相乘。本来B的位置与方向都是相对于世界坐标系原点，经过变换后，B的位置与方向改变为相对于A的物体坐标系原点。
  */
 class GLFrame
     {
@@ -51,8 +57,7 @@ class GLFrame
         M3DVector3f vUp;		// Which way is up?
 
     public:
-		// Default position and orientation. At the origin, looking
-		// down the positive Z axis (right handed coordinate system).
+		// 默认构造函数（世界坐标系，位置在（0，0，0）点，up为（0，1，0）朝向+Y，forward为（0，0，-1）朝向-Z)
 		GLFrame(void) {
 			// At origin
             vOrigin[0] = 0.0f; vOrigin[1] = 0.0f; vOrigin[2] = 0.0f; 
@@ -66,7 +71,7 @@ class GLFrame
 
 
         /////////////////////////////////////////////////////////////
-        // Set Location
+        // 设置/获取 世界坐标系下 模型/相机 的位置。
         inline void SetOrigin(const M3DVector3f vPoint) {
 			m3dCopyVector3(vOrigin, vPoint); }
         
@@ -76,12 +81,13 @@ class GLFrame
 		inline void GetOrigin(M3DVector3f vPoint) {
 			m3dCopyVector3(vPoint, vOrigin); }
 
+        // 获取世界坐标系下 模型/相机 位置的X/Y/Z分量
 		inline float GetOriginX(void) { return vOrigin[0]; }
 		inline float GetOriginY(void) { return vOrigin[1]; } 
 		inline float GetOriginZ(void) { return vOrigin[2]; }
 
         /////////////////////////////////////////////////////////////
-        // Set Forward Direction
+        // 设置/获取 世界坐标系下 模型/相机 向前的方向向量
         inline void SetForwardVector(const M3DVector3f vDirection) {
 			m3dCopyVector3(vForward, vDirection); }
 
@@ -91,7 +97,7 @@ class GLFrame
         inline void GetForwardVector(M3DVector3f vVector) { m3dCopyVector3(vVector, vForward); }
 
         /////////////////////////////////////////////////////////////
-        // Set Up Direction
+        // 设置/获取 世界坐标系下 模型/相机 向上的方向向量
         inline void SetUpVector(const M3DVector3f vDirection) {
 			m3dCopyVector3(vUp, vDirection); }
 
@@ -102,23 +108,24 @@ class GLFrame
 
 
 		/////////////////////////////////////////////////////////////
-		// Get Axes
+		// 获取世界坐标系下模型/相机X/Y/Z轴方向向量
 		inline void GetZAxis(M3DVector3f vVector) { GetForwardVector(vVector); }
 		inline void GetYAxis(M3DVector3f vVector) { GetUpVector(vVector); }
 		inline void GetXAxis(M3DVector3f vVector) { m3dCrossProduct3(vVector, vUp, vForward); }
 
 
 		/////////////////////////////////////////////////////////////
-        // Translate along orthonormal axis... world or local
+        // 以世界坐标系下（x,y,z）偏移量移动 模型/相机
         inline void TranslateWorld(float x, float y, float z)
 			{ vOrigin[0] += x; vOrigin[1] += y; vOrigin[2] += z; }
 
+        // 以物体坐标系下(x,y,z)偏移量移动模型/相机
         inline void TranslateLocal(float x, float y, float z)
 			{ MoveForward(z); MoveUp(y); MoveRight(x);	}
 
 
 		/////////////////////////////////////////////////////////////
-		// Move Forward (along Z axis)
+		// 沿物体坐标系下Z轴以指定偏移fDelta量移动模型/相机
 		inline void MoveForward(float fDelta)
 			{
 		    // Move along direction of front direction
@@ -127,7 +134,7 @@ class GLFrame
 			vOrigin[2] += vForward[2] * fDelta;
 			}
 
-		// Move along Y axis
+		// 沿物体坐标系下Y轴以指定偏移fDelta移动物体/相机
 		inline void MoveUp(float fDelta)
 			{
 		    // Move along direction of up direction
@@ -136,7 +143,7 @@ class GLFrame
 			vOrigin[2] += vUp[2] * fDelta;
 			}
 
-		// Move along X axis
+		// 沿物体坐标系下X轴以指定偏移fDelta移动物体/相机
 		inline void MoveRight(float fDelta)
 			{
 			// Move along direction of right vector
@@ -150,14 +157,14 @@ class GLFrame
 
 
 		///////////////////////////////////////////////////////////////////////
-		// Just assemble the matrix
+		// 获取一个用于描述模型属性的4×4的矩阵
         void GetMatrix(M3DMatrix44f matrix, bool bRotationOnly = false)
 			{
-			// Calculate the right side (x) vector, drop it right into the matrix
+			// 计算向右的向量（x),并将它放在矩阵中的右边
 			M3DVector3f vXAxis;
 			m3dCrossProduct3(vXAxis, vUp, vForward);
 
-			// Set matrix column does not fill in the fourth value...
+			// 设置矩阵列，并没有填充第四个值
             m3dSetMatrixColumn44(matrix, vXAxis, 0);
             matrix[3] = 0.0f;
            
@@ -185,7 +192,6 @@ class GLFrame
 
 
        ////////////////////////////////////////////////////////////////////////
-       // Assemble the camera matrix
         void GetCameraMatrix(M3DMatrix44f m, bool bRotationOnly = false)
             {
             M3DVector3f x, z;
@@ -235,8 +241,7 @@ class GLFrame
             }
 
         /////////////////////////////////////////////////////////////
-        // Get a 4x4 transformation matrix that describes the ccamera
-        // orientation.
+        // 获取一个用于描述相机属性的4×4的矩阵
         inline void GetCameraOrientation(M3DMatrix44f m)
         {
             M3DVector3f x, z;
@@ -282,6 +287,7 @@ class GLFrame
         // tune... ;-) You might get a boost form page fault reduction too... if
         // no other glu routines are used...
         // This will get called once per frame.... go ahead and inline
+        // 应用所有的相机变换。该函数仅用于相机
         inline void ApplyCameraTransform(bool bRotOnly = false)
         {
             M3DMatrix44f m;
@@ -309,6 +315,7 @@ class GLFrame
         // There is ample room for optimization here...
         // This is going to be called alot... don't inline
         // Add flag to perform actor rotation only and not the translation
+        // 应用所有的物体变换。该函数仅用于除相机外的物体
         void ApplyActorTransform(bool bRotationOnly = false)
         {
             M3DMatrix44f rotMat;
@@ -319,7 +326,7 @@ class GLFrame
             glMultMatrixf(rotMat);
         }
 
-		// Rotate around local Y
+		//  令物体/相机以自身位置为中心，绕Y轴旋转。其角度以PI为单位
         void RotateLocalY(float fAngle)
 			{
 	        M3DMatrix44f rotMat;
@@ -338,8 +345,8 @@ class GLFrame
 			m3dCopyVector3(vForward, newVect);
 			}
 
-
-		// Rotate around local Z
+        
+        //  令物体/相机以自身位置为中心，绕Z轴旋转。其角度以PI为单位
         void RotateLocalZ(float fAngle)
 			{
 			M3DMatrix44f rotMat;
@@ -354,7 +361,8 @@ class GLFrame
 			newVect[2] = rotMat[2] * vUp[0] + rotMat[6] * vUp[1] + rotMat[10] * vUp[2];	
 			m3dCopyVector3(vUp, newVect);
 			}
-
+        
+        //  令物体/相机以自身位置为中心，绕轴旋转。其角度以PI为单位
 		void RotateLocalX(float fAngle)
 			{
 			M3DMatrix33f rotMat;
@@ -394,7 +402,7 @@ class GLFrame
 			}
 
 
-		// Rotate in world coordinates...
+		// 模型/相机绕世界坐标系下的指定轴(x,y,z)旋转fAngle度
 		void RotateWorld(float fAngle, float x, float y, float z)
 			{
             M3DMatrix44f rotMat;
@@ -418,7 +426,7 @@ class GLFrame
             }
 
 
-        // Rotate around a local axis
+        // 模型/相机绕当前物体坐标系下的指定轴(x,y,z)旋转fAngle度
         void RotateLocal(float fAngle, float x, float y, float z) 
             {
             M3DVector3f vWorldVect;
@@ -435,6 +443,7 @@ class GLFrame
         // and position on the point
 		// Is it better to stick to the convention that the destination always comes
 		// first, or use the conventions that "sounds" like the function...
+        // 将点/向量vLocal从当前物体坐标系转换为世界坐标系
         void LocalToWorld(const M3DVector3f vLocal, M3DVector3f vWorld, bool bRotOnly = false)
             {
              // Create the rotation matrix based on the vectors
@@ -456,6 +465,7 @@ class GLFrame
             }
 
 		// Change world coordinates into "local" coordinates
+        // 将点/向量vLocal从世界坐标系转换为当前物体坐标系
         void WorldToLocal(const M3DVector3f vWorld, M3DVector3f vLocal)
             {
 			////////////////////////////////////////////////
@@ -480,6 +490,7 @@ class GLFrame
         
         /////////////////////////////////////////////////////////////////////////////
         // Transform a point by frame matrix
+        // 通过当前frame矩阵将vPointSrc点变换为vPointDst点
         void TransformPoint(M3DVector3f vPointSrc, M3DVector3f vPointDst)
             {
             M3DMatrix44f m;
@@ -491,6 +502,7 @@ class GLFrame
         
         ////////////////////////////////////////////////////////////////////////////
         // Rotate a vector by frame matrix
+        //通过当前frame矩阵将vVectorSrc向量旋转为vVectorDst向量
         void RotateVector(M3DVector3f vVectorSrc, M3DVector3f vVectorDst)
             {
             M3DMatrix44f m;
