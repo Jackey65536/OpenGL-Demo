@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D00FF11231C1A0E00A6DE1E /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D00FF10231C1A0E00A6DE1E /* triangle.cpp */; };
+		0D00FF14231C1AC700A6DE1E /* spot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D00FF13231C1AC700A6DE1E /* spot.cpp */; };
+		0D00FF17231C1B3700A6DE1E /* sphereworld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D00FF16231C1B3700A6DE1E /* sphereworld.cpp */; };
+		0D00FF1A231C1C5600A6DE1E /* shinyjet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D00FF19231C1C5600A6DE1E /* shinyjet.cpp */; };
+		0D00FF1D231C1CB300A6DE1E /* shadow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D00FF1C231C1CB300A6DE1E /* shadow.cpp */; };
+		0D00FF20231C1D0800A6DE1E /* litjet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D00FF1F231C1D0800A6DE1E /* litjet.cpp */; };
+		0D00FF23231C1D5400A6DE1E /* jet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D00FF22231C1D5400A6DE1E /* jet.cpp */; };
+		0D00FF26231C1D8A00A6DE1E /* ccube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D00FF25231C1D8A00A6DE1E /* ccube.cpp */; };
+		0D00FF29231C1DD300A6DE1E /* ambient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D00FF28231C1DD300A6DE1E /* ambient.cpp */; };
 		0D068378231976A000ADCBC6 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D068377231976A000ADCBC6 /* GLUT.framework */; };
 		0D3E2E852312170F00D4832D /* GLTriangleBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D3E2E812312170E00D4832D /* GLTriangleBatch.cpp */; };
 		0D3E2E862312170F00D4832D /* GLShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D3E2E822312170E00D4832D /* GLShaderManager.cpp */; };
@@ -79,6 +88,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D00FF10231C1A0E00A6DE1E /* triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = triangle.cpp; sourceTree = "<group>"; };
+		0D00FF13231C1AC700A6DE1E /* spot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = spot.cpp; sourceTree = "<group>"; };
+		0D00FF16231C1B3700A6DE1E /* sphereworld.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sphereworld.cpp; sourceTree = "<group>"; };
+		0D00FF19231C1C5600A6DE1E /* shinyjet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shinyjet.cpp; sourceTree = "<group>"; };
+		0D00FF1C231C1CB300A6DE1E /* shadow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shadow.cpp; sourceTree = "<group>"; };
+		0D00FF1F231C1D0800A6DE1E /* litjet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = litjet.cpp; sourceTree = "<group>"; };
+		0D00FF22231C1D5400A6DE1E /* jet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = jet.cpp; sourceTree = "<group>"; };
+		0D00FF25231C1D8A00A6DE1E /* ccube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ccube.cpp; sourceTree = "<group>"; };
+		0D00FF28231C1DD300A6DE1E /* ambient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ambient.cpp; sourceTree = "<group>"; };
 		0D068377231976A000ADCBC6 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		0D3E2E812312170E00D4832D /* GLTriangleBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLTriangleBatch.cpp; sourceTree = "<group>"; };
 		0D3E2E822312170E00D4832D /* GLShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLShaderManager.cpp; sourceTree = "<group>"; };
@@ -181,6 +199,94 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D00FF0E231C19B000A6DE1E /* chapt05 */ = {
+			isa = PBXGroup;
+			children = (
+				0D00FF27231C1DC600A6DE1E /* ambient */,
+				0D00FF24231C1D7C00A6DE1E /* ccube */,
+				0D00FF21231C1D4300A6DE1E /* jet */,
+				0D00FF1E231C1CFB00A6DE1E /* litjet */,
+				0D00FF1B231C1CA400A6DE1E /* shadow */,
+				0D00FF18231C1C4600A6DE1E /* shinyjet */,
+				0D00FF15231C1B2800A6DE1E /* sphereworld */,
+				0D00FF12231C1AB200A6DE1E /* spot */,
+				0D00FF0F231C19F300A6DE1E /* triangle */,
+			);
+			path = chapt05;
+			sourceTree = "<group>";
+		};
+		0D00FF0F231C19F300A6DE1E /* triangle */ = {
+			isa = PBXGroup;
+			children = (
+				0D00FF10231C1A0E00A6DE1E /* triangle.cpp */,
+			);
+			path = triangle;
+			sourceTree = "<group>";
+		};
+		0D00FF12231C1AB200A6DE1E /* spot */ = {
+			isa = PBXGroup;
+			children = (
+				0D00FF13231C1AC700A6DE1E /* spot.cpp */,
+			);
+			path = spot;
+			sourceTree = "<group>";
+		};
+		0D00FF15231C1B2800A6DE1E /* sphereworld */ = {
+			isa = PBXGroup;
+			children = (
+				0D00FF16231C1B3700A6DE1E /* sphereworld.cpp */,
+			);
+			path = sphereworld;
+			sourceTree = "<group>";
+		};
+		0D00FF18231C1C4600A6DE1E /* shinyjet */ = {
+			isa = PBXGroup;
+			children = (
+				0D00FF19231C1C5600A6DE1E /* shinyjet.cpp */,
+			);
+			path = shinyjet;
+			sourceTree = "<group>";
+		};
+		0D00FF1B231C1CA400A6DE1E /* shadow */ = {
+			isa = PBXGroup;
+			children = (
+				0D00FF1C231C1CB300A6DE1E /* shadow.cpp */,
+			);
+			path = shadow;
+			sourceTree = "<group>";
+		};
+		0D00FF1E231C1CFB00A6DE1E /* litjet */ = {
+			isa = PBXGroup;
+			children = (
+				0D00FF1F231C1D0800A6DE1E /* litjet.cpp */,
+			);
+			path = litjet;
+			sourceTree = "<group>";
+		};
+		0D00FF21231C1D4300A6DE1E /* jet */ = {
+			isa = PBXGroup;
+			children = (
+				0D00FF22231C1D5400A6DE1E /* jet.cpp */,
+			);
+			path = jet;
+			sourceTree = "<group>";
+		};
+		0D00FF24231C1D7C00A6DE1E /* ccube */ = {
+			isa = PBXGroup;
+			children = (
+				0D00FF25231C1D8A00A6DE1E /* ccube.cpp */,
+			);
+			path = ccube;
+			sourceTree = "<group>";
+		};
+		0D00FF27231C1DC600A6DE1E /* ambient */ = {
+			isa = PBXGroup;
+			children = (
+				0D00FF28231C1DD300A6DE1E /* ambient.cpp */,
+			);
+			path = ambient;
+			sourceTree = "<group>";
+		};
 		0DDBD979230864BA0087A48A = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +403,7 @@
 				0DDBD9FE230865520087A48A /* chapt02 */,
 				0DDBDA06230865520087A48A /* chapt03 */,
 				0DDBDA1F230865520087A48A /* chapt04 */,
+				0D00FF0E231C19B000A6DE1E /* chapt05 */,
 				0DDBDA31230865520087A48A /* test */,
 			);
 			path = src;
@@ -644,14 +751,19 @@
 				0DDBDA4B230865530087A48A /* pyramid.cpp in Sources */,
 				0D3E2E852312170F00D4832D /* GLTriangleBatch.cpp in Sources */,
 				0DDBDA47230865530087A48A /* objects.cpp in Sources */,
+				0D00FF1A231C1C5600A6DE1E /* shinyjet.cpp in Sources */,
 				0DDBDA4D230865530087A48A /* smoother.cpp in Sources */,
 				0D3E2E862312170F00D4832D /* GLShaderManager.cpp in Sources */,
+				0D00FF1D231C1CB300A6DE1E /* shadow.cpp in Sources */,
 				0DDBDA46230865530087A48A /* movebymatrix.cpp in Sources */,
 				0DDBDA54230865530087A48A /* tunnel.cpp in Sources */,
+				0D00FF14231C1AC700A6DE1E /* spot.cpp in Sources */,
 				0DDBDA60230865530087A48A /* lstipple.cpp in Sources */,
 				0DDBDA50230865530087A48A /* sphere3.cpp in Sources */,
+				0D00FF17231C1B3700A6DE1E /* sphereworld.cpp in Sources */,
 				0DDBDA6F230865530087A48A /* sphereworld.cpp in Sources */,
 				0DDBDA4E230865530087A48A /* sphere1.cpp in Sources */,
+				0D00FF20231C1D0800A6DE1E /* litjet.cpp in Sources */,
 				0DDBDA66230865530087A48A /* single.cpp in Sources */,
 				0DDBDA3C230865530087A48A /* blending.cpp in Sources */,
 				0DDBDA5C230865530087A48A /* simple.cpp in Sources */,
@@ -672,6 +784,8 @@
 				0DDBDA52230865530087A48A /* sphere5.cpp in Sources */,
 				0DDBDA73230865530087A48A /* glut_double_test.cpp in Sources */,
 				0DDBDA63230865530087A48A /* pointsz.cpp in Sources */,
+				0D00FF26231C1D8A00A6DE1E /* ccube.cpp in Sources */,
+				0D00FF29231C1DD300A6DE1E /* ambient.cpp in Sources */,
 				0DDBDA64230865530087A48A /* pstipple.cpp in Sources */,
 				0DDBDA48230865530087A48A /* orthographic.cpp in Sources */,
 				0DDBDA51230865530087A48A /* sphere4.cpp in Sources */,
@@ -683,7 +797,9 @@
 				0D3E2E882312170F00D4832D /* GLTools.cpp in Sources */,
 				0DDBDA43230865530087A48A /* modelview_projection.cpp in Sources */,
 				0D4088BC231ABF2F004B88FB /* GlutQuadsDemo.cpp in Sources */,
+				0D00FF23231C1D5400A6DE1E /* jet.cpp in Sources */,
 				0DDBDA5B230865530087A48A /* glrect.cpp in Sources */,
+				0D00FF11231C1A0E00A6DE1E /* triangle.cpp in Sources */,
 				0DDBDA4C230865530087A48A /* scissor.cpp in Sources */,
 				0DDBDA6D230865530087A48A /* perspect.cpp in Sources */,
 				0DDBDA4A230865530087A48A /* primitives.cpp in Sources */,
