@@ -61,8 +61,45 @@
 #### http://ogldev.atspace.co.uk/www/tutorial01/tutorial01.html
 
 # 第五章 基础纹理
+## 一、原始图像数据
+### 1、像素包装
+#### 改变或者恢复像素的存储方式
+#### void glPixelStorei(GLenum pname, GLint param); 
+#### void glPixelStoref(GLenum pname, GLfloat param);
+### 2、像素图
+#### 将颜色缓冲区的内容作为像素图直接读取
+#### void glReadPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *pixels);
+### 3、包装的像素格式
+#### UNSIGNED_BYTE_3_3_2、UNSIGNED_BYTE_2_3_3_REV
+### 4、保存像素
+### 5、读取像素
 
+## 二、载入纹理
+### 在几何图形中应用纹理贴图时，第一个必要步骤就是讲纹理载入内存。一旦被载入，这些纹理就会成为当前纹理状态的一部分。
+### 1、从磁盘文件读取纹理数据
+#### void glTexImage1D(GLenum target, GLint level, GLint internalformat, GLsizei width, GLint border, GLenum format, GLenum type, void *data); 相应的还有glTexImage2D，glTexImage3D
+### 2、从颜色缓冲区加载纹理数据（一维和二维）
+#### void glCopyTexImage1D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLint border); 相应的还有glCopyTexImage2D
+### 3、更新纹理
+#### void glTexSubImage1D(GLenum target, GLint level, GLint xOffset, GLsizei width, GLenum format, GLenum type, const GLvoid *data); 相应的还有 glTexSubImage2D、glTexSubImage3D
+#### void glCopyTexSubImage1D(Glenum target, GLint level, GLint xOffset, GLint x, GLint y, GLsizei width); 相应的还有 glCopyTexSubImage2D、glCopyTexSubImage3D
+### 4、管理纹理对象
+#### void glGenTextures(GLsizei n, GLuint *textures);
+#### void glBindTexture(GLenum target, GLuint texture);
+#### void glDeleteTextures(GLsizei n, GLuint *textures);
+#### GLboolean glIsTexture(GLuint texture);
 
+## 三、纹理应用
+### 1、纹理坐标
+#### 坐标 (s, t, r, q)，与定点坐标x、y、z、w相类似
+### 2、纹理参数
+#### void glTexParameterf(GLenum target, GLenum pname, GLfloat param); // 设置纹理贴图参数
+#### void glTexParameteri(GLenum target, GLenum pname, GLint param);
+#### void glTexParameterfv(GLenum target, GLenum pname, GLfloat *param);
+#### void glTexParameteriv(GLenum target, GLenum pname, GLint *param);
+#### 根据一个拉伸或收缩的纹理贴图计算颜色片段的过程称为纹理过滤（Texture Filtering）
+#### 过滤器：GL_TEXTURE_MAG_FILTER、GL_TEXTURE_MIN_FLITER
+#### 过滤方法：GL_NEAREST、GL_LINEAR
 
 
 

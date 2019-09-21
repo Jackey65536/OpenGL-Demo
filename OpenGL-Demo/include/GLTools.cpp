@@ -790,47 +790,44 @@ typedef struct
 
 
 ////////////////////////////////////////////////////////////////////
-// Capture the current viewport and save it as a targa file.
-// Be sure and call SwapBuffers for double buffered contexts or
-// glFinish for single buffered contexts before calling this function.
-// Returns 0 if an error occurs, or 1 on success.
-// Does not work on the iPhone
+/*
+ 捕获当前视口并将它保存z为一个targa文件，确保在调用这个函数之前，在双缓冲区环境下调用 SwapBuffer，而在单缓冲区环境下调用 glFinish。如果出现错误则返回 0，如果没有出现错误则返回 1。
+ */
 #ifndef OPENGL_ES
 GLint gltGrabScreenTGA(const char *szFileName)
 	{
-    FILE *pFile;                // File pointer
-    TGAHEADER tgaHeader;		// TGA file header
-    unsigned long lImageSize;   // Size in bytes of image
-    GLbyte	*pBits = NULL;      // Pointer to bits
-    GLint iViewport[4];         // Viewport in pixels
-    GLenum lastBuffer;          // Storage for the current read buffer setting
+    FILE *pFile;                // 文件指针
+    TGAHEADER tgaHeader;		// TGA 文件头
+    unsigned long lImageSize;   // 图像的大小，用字节来表示
+    GLbyte	*pBits = NULL;      // 指向位的指针
+    GLint iViewport[4];         // 以像素表示的视口
+    GLenum lastBuffer;          // 存储当前的读取缓冲区设置
     
-	// Get the viewport dimensions
+	// 获取视口大小
 	glGetIntegerv(GL_VIEWPORT, iViewport);
 	
-    // How big is the image going to be (targas are tightly packed)
+    // 图像应该多大（targa文件将被紧密包装）
 	lImageSize = iViewport[2] * 3 * iViewport[3];	
 	
-    // Allocate block. If this doesn't work, go home
+    // 分配存储空间，如果这种操作不起作用则返回
     pBits = (GLbyte *)malloc(lImageSize);
     if(pBits == NULL)
         return 0;
 	
-    // Read bits from color buffer
+    // 从颜色缓冲区读取位
     glPixelStorei(GL_PACK_ALIGNMENT, 1);
 	glPixelStorei(GL_PACK_ROW_LENGTH, 0);
 	glPixelStorei(GL_PACK_SKIP_ROWS, 0);
 	glPixelStorei(GL_PACK_SKIP_PIXELS, 0);
     
-    // Get the current read buffer setting and save it. Switch to
-    // the front buffer and do the read operation. Finally, restore
-    // the read buffer state
+    // 获取当前读取缓冲区设置并进行保存
+    // 切换到前台缓冲区并进行读取操作，最后恢复读取缓冲区状态
     glGetIntegerv(GL_READ_BUFFER, (GLint *)&lastBuffer);
     glReadBuffer(GL_FRONT);
     glReadPixels(0, 0, iViewport[2], iViewport[3], GL_BGR_EXT, GL_UNSIGNED_BYTE, pBits);
     glReadBuffer(lastBuffer);
     
-    // Initialize the Targa header
+    // 初始化 Targa 头
     tgaHeader.identsize = 0;
     tgaHeader.colorMapType = 0;
     tgaHeader.imageType = 2;
@@ -854,7 +851,7 @@ GLint gltGrabScreenTGA(const char *szFileName)
     LITTLE_ENDIAN_WORD(&tgaHeader.height);
 #endif
     
-    // Attempt to open the file
+    // 尝试打开文件
     pFile = fopen(szFileName, "wb");
     if(pFile == NULL)
 		{
@@ -862,13 +859,13 @@ GLint gltGrabScreenTGA(const char *szFileName)
         return 0;
 		}
 	
-    // Write the header
+    // 写入文件头
     fwrite(&tgaHeader, sizeof(TGAHEADER), 1, pFile);
     
-    // Write the image data
+    // 写入图像数据
     fwrite(pBits, lImageSize, 1, pFile);
 	
-    // Free temporary buffer and close the file
+    // 释放临时缓冲区并关闭文件
     free(pBits);    
     fclose(pFile);
     

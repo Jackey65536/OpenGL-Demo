@@ -615,12 +615,19 @@ typedef char GLchar;
 #define GL_QUADRATIC_ATTENUATION 0x1209
 #define GL_COMPILE 0x1300
 #define GL_COMPILE_AND_EXECUTE 0x1301
+// 8位有符号整数
 #define GL_BYTE 0x1400
+// 每种颜色分量都是一个8位无符号整数
 #define GL_UNSIGNED_BYTE 0x1401
+// 16位有符号整数
 #define GL_SHORT 0x1402
+// 16位无符号整数
 #define GL_UNSIGNED_SHORT 0x1403
+// 32位有符号整数
 #define GL_INT 0x1404
+// 32位无符号整数
 #define GL_UNSIGNED_INT 0x1405
+// 单精度浮点数
 #define GL_FLOAT 0x1406
 #define GL_2_BYTES 0x1407
 #define GL_3_BYTES 0x1408
@@ -655,15 +662,25 @@ typedef char GLchar;
 #define GL_DEPTH 0x1801
 #define GL_STENCIL 0x1802
 #define GL_COLOR_INDEX 0x1900
+// 每个像素只包含一个模板值
 #define GL_STENCIL_INDEX 0x1901
+// 每个像素只包含一个深度值
 #define GL_DEPTH_COMPONENT 0x1902
+// 每个像素只包含一个红色分量
 #define GL_RED 0x1903
+// 每个像素只包含一个绿色分量
 #define GL_GREEN 0x1904
+// 每个像素只包含一个蓝色分量
 #define GL_BLUE 0x1905
+// 按照 alpha 值存储纹理单元
 #define GL_ALPHA 0x1906
+// 按照红、绿、蓝成分存储纹理单元
 #define GL_RGB 0x1907
+// 按照红、绿、蓝、Alpha 成分存储纹理单元
 #define GL_RGBA 0x1908
+// 按照亮度值存储纹理单元
 #define GL_LUMINANCE 0x1909
+// 按照亮度值和 alpha 值存储纹理单元
 #define GL_LUMINANCE_ALPHA 0x190A
 #define GL_BITMAP 0x1A00
 #define GL_POINT 0x1B00
@@ -698,17 +715,25 @@ typedef char GLchar;
 #define GL_TEXTURE_GEN_MODE 0x2500
 #define GL_OBJECT_PLANE 0x2501
 #define GL_EYE_PLANE 0x2502
+// 最邻近过滤
 #define GL_NEAREST 0x2600
+// 线性过滤
 #define GL_LINEAR 0x2601
 #define GL_NEAREST_MIPMAP_NEAREST 0x2700
 #define GL_LINEAR_MIPMAP_NEAREST 0x2701
 #define GL_NEAREST_MIPMAP_LINEAR 0x2702
 #define GL_LINEAR_MIPMAP_LINEAR 0x2703
+// 放大过滤器
 #define GL_TEXTURE_MAG_FILTER 0x2800
+// 缩小过滤器
 #define GL_TEXTURE_MIN_FILTER 0x2801
+// S 方向上的贴图模式
 #define GL_TEXTURE_WRAP_S 0x2802
+// T 方向上的贴图模式
 #define GL_TEXTURE_WRAP_T 0x2803
+// 截取，将大于1.0的数值设置为1.0，将小于0.0的数值设置为0.0，即将超出[0.0,1.0]范围的数值截取到[0.0,1.0]范围内，这样会导致纹理边缘的重复。
 #define GL_CLAMP 0x2900
+// 图象在表面上重复出现。忽略纹理坐标的整数部分，并将纹理图的拷贝粘贴在物体表面上,这样才能做到无缝连接。
 #define GL_REPEAT 0x2901
 #define GL_POLYGON_OFFSET_UNITS 0x2A00
 #define GL_POLYGON_OFFSET_POINT 0x2A01
@@ -834,6 +859,11 @@ GLAPI void GLAPIENTRY glAlphaFunc (GLenum func, GLclampf ref);
 GLAPI GLboolean GLAPIENTRY glAreTexturesResident (GLsizei n, const GLuint *textures, GLboolean *residences);
 GLAPI void GLAPIENTRY glArrayElement (GLint i);
 GLAPI void GLAPIENTRY glBegin (GLenum mode);
+/*
+ 绑定纹理，绑定后，所有的纹理加载和纹理s参数设置只影响当前绑定的纹理对象
+ target: GL_TEXTURE_1D、GL_TEXTURE_2D、GL_TEXTURE_3D
+ texture: 需要绑定的特定纹理对象
+ */
 GLAPI void GLAPIENTRY glBindTexture (GLenum target, GLuint texture);
 GLAPI void GLAPIENTRY glBitmap (GLsizei width, GLsizei height, GLfloat xorig, GLfloat yorig, GLfloat xmove, GLfloat ymove, const GLubyte *bitmap);
 GLAPI void GLAPIENTRY glBlendFunc (GLenum sfactor, GLenum dfactor);
@@ -885,6 +915,7 @@ GLAPI void GLAPIENTRY glColorMask (GLboolean red, GLboolean green, GLboolean blu
 GLAPI void GLAPIENTRY glColorMaterial (GLenum face, GLenum mode);
 GLAPI void GLAPIENTRY glColorPointer (GLint size, GLenum type, GLsizei stride, const GLvoid *pointer);
 GLAPI void GLAPIENTRY glCopyPixels (GLint x, GLint y, GLsizei width, GLsizei height, GLenum type);
+// 类似于 glTexImage，这里x和y在颜色缓冲区中指定了开始读取纹理数据的位置
 GLAPI void GLAPIENTRY glCopyTexImage1D (GLenum target, GLint level, GLenum internalFormat, GLint x, GLint y, GLsizei width, GLint border);
 GLAPI void GLAPIENTRY glCopyTexImage2D (GLenum target, GLint level, GLenum internalFormat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border);
 GLAPI void GLAPIENTRY glCopyTexSubImage1D (GLenum target, GLint level, GLint xoffset, GLint x, GLint y, GLsizei width);
@@ -892,6 +923,10 @@ GLAPI void GLAPIENTRY glCopyTexSubImage2D (GLenum target, GLint level, GLint xof
 // 指定表面剔除哪个面
 GLAPI void GLAPIENTRY glCullFace (GLenum mode);
 GLAPI void GLAPIENTRY glDeleteLists (GLuint list, GLsizei range);
+/*
+ 删除纹理对象
+ 参数与 glBindTexture 的参数相同含义
+ */
 GLAPI void GLAPIENTRY glDeleteTextures (GLsizei n, const GLuint *textures);
 GLAPI void GLAPIENTRY glDepthFunc (GLenum func);
 GLAPI void GLAPIENTRY glDepthMask (GLboolean flag);
@@ -933,6 +968,10 @@ GLAPI void GLAPIENTRY glFogiv (GLenum pname, const GLint *params);
 GLAPI void GLAPIENTRY glFrontFace (GLenum mode);
 GLAPI void GLAPIENTRY glFrustum (GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar);
 GLAPI GLuint GLAPIENTRY glGenLists (GLsizei range);
+/*
+ n: 纹理对象的数量
+ textures: 纹理对象的指针，指向一个无符号整形数组
+ */
 GLAPI void GLAPIENTRY glGenTextures (GLsizei n, GLuint *textures);
 GLAPI void GLAPIENTRY glGetBooleanv (GLenum pname, GLboolean *params);
 GLAPI void GLAPIENTRY glGetClipPlane (GLenum plane, GLdouble *equation);
@@ -980,6 +1019,7 @@ GLAPI void GLAPIENTRY glInitNames (void);
 GLAPI void GLAPIENTRY glInterleavedArrays (GLenum format, GLsizei stride, const GLvoid *pointer);
 GLAPI GLboolean GLAPIENTRY glIsEnabled (GLenum cap);
 GLAPI GLboolean GLAPIENTRY glIsList (GLuint list);
+// 检查纹理对象名是否有效
 GLAPI GLboolean GLAPIENTRY glIsTexture (GLuint texture);
 // 设置光照模型参数
 GLAPI void GLAPIENTRY glLightModelf (GLenum pname, GLfloat param);
@@ -1079,6 +1119,14 @@ GLAPI void GLAPIENTRY glRasterPos4iv (const GLint *v);
 GLAPI void GLAPIENTRY glRasterPos4s (GLshort x, GLshort y, GLshort z, GLshort w);
 GLAPI void GLAPIENTRY glRasterPos4sv (const GLshort *v);
 GLAPI void GLAPIENTRY glReadBuffer (GLenum mode);
+/*
+ 将颜色缓冲区的内容作为像素图直接读取
+ x、y: 指定矩形左下角的窗口坐标
+ width、height: 指定矩形的宽高
+ format: 指定 pixels 指向的数据元素的颜色布局
+ type: 解释参数 *pixels 指向的数据，它告诉 OpenGL 使用缓冲区中的什么数据类型来存储颜色分量
+ glReadPixels 从图形硬件中复制数据，通常通过总线传输到系统内存。在这种情况下，应用程序将被阻塞，知道内存传输完成
+ */
 GLAPI void GLAPIENTRY glReadPixels (GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, GLvoid *pixels);
 GLAPI void GLAPIENTRY glRectd (GLdouble x1, GLdouble y1, GLdouble x2, GLdouble y2);
 GLAPI void GLAPIENTRY glRectdv (const GLdouble *v1, const GLdouble *v2);
@@ -1144,12 +1192,28 @@ GLAPI void GLAPIENTRY glTexGenf (GLenum coord, GLenum pname, GLfloat param);
 GLAPI void GLAPIENTRY glTexGenfv (GLenum coord, GLenum pname, const GLfloat *params);
 GLAPI void GLAPIENTRY glTexGeni (GLenum coord, GLenum pname, GLint param);
 GLAPI void GLAPIENTRY glTexGeniv (GLenum coord, GLenum pname, const GLint *params);
+/*
+ target: GL_TEXTURE_1D、GL_TEXTURE_2D、GL_TEXTURE_3D，或 GL_PROXY_TEXTURE_1D、GL_PROXY_TEXTURE_2D、GL_PROXY_TEXTURE_3D
+ level: 指定了这些函数所加载的 mip 贴图层次，对于非 mip 贴图的纹理，置位0
+ internalformat: 告诉 OpenGL 每个纹理单元中存储多少颜色成分，并在可能得情况下说明这些成分的存储大小，以及是否对纹理进行压缩
+ width、height 和 depth 参数指定了被加载纹理的宽度、高度和深度，这些值必须是 2 的整数次方（1、2、4、8、16、32、64 等）以防被老版本 OpenGL 禁用
+ border 为纹理贴图指定一个边界宽度
+ format、type、data 和用于把图像数据放入颜色缓冲区的 glDrawPixels 函数的对应参数相同
+ */
 GLAPI void GLAPIENTRY glTexImage1D (GLenum target, GLint level, GLint internalformat, GLsizei width, GLint border, GLenum format, GLenum type, const GLvoid *pixels);
 GLAPI void GLAPIENTRY glTexImage2D (GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, const GLvoid *pixels);
+/*
+ target: 指定这些参数将要应用在哪个纹理模式上，它可以是 GL_TEXTURE_1D、GL_TEXTURE_2D、GL_TEXTURE_3D
+ pname: 指定了需要设置哪个纹理参数
+ param: 设置特定的纹理参数的值
+ */
 GLAPI void GLAPIENTRY glTexParameterf (GLenum target, GLenum pname, GLfloat param);
 GLAPI void GLAPIENTRY glTexParameterfv (GLenum target, GLenum pname, const GLfloat *params);
 GLAPI void GLAPIENTRY glTexParameteri (GLenum target, GLenum pname, GLint param);
 GLAPI void GLAPIENTRY glTexParameteriv (GLenum target, GLenum pname, const GLint *params);
+// 与 glTexImage 所使用的参数对应
+// xOffset、yOffset、zOffset 指定了在原来的纹理贴图中开始替换纹理数据的偏移量
+// width、height、depth 指定了“插入”到原来那个纹理中的新纹理的宽度、高度、深度
 GLAPI void GLAPIENTRY glTexSubImage1D (GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLenum type, const GLvoid *pixels);
 GLAPI void GLAPIENTRY glTexSubImage2D (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, const GLvoid *pixels);
 // 定义一个平移矩阵，该矩阵与当前矩阵相乘，使后续的图形进行平移变换
@@ -1222,10 +1286,13 @@ GLAPI void GLAPIENTRY glViewport (GLint x, GLint y, GLsizei width, GLsizei heigh
 #define GL_TEXTURE_DEPTH 0x8071
 #define GL_TEXTURE_WRAP_R 0x8072
 #define GL_MAX_3D_TEXTURE_SIZE 0x8073
+// 按照蓝、绿、红顺序排列的颜色
 #define GL_BGR 0x80E0
+// 按照蓝、绿、红、Alpha 顺序排列的颜色
 #define GL_BGRA 0x80E1
 #define GL_MAX_ELEMENTS_VERTICES 0x80E8
 #define GL_MAX_ELEMENTS_INDICES 0x80E9
+// 总是忽略边界。处于纹理边缘或者靠近纹理边缘的纹理单元都用作纹理计算，但是不包括边界上的纹理单元。
 #define GL_CLAMP_TO_EDGE 0x812F
 #define GL_TEXTURE_MIN_LOD 0x813A
 #define GL_TEXTURE_MAX_LOD 0x813B
@@ -2125,13 +2192,20 @@ typedef void (GLAPIENTRY * PFNGLUNIFORMMATRIX4X3FVPROC) (GLint location, GLsizei
 #define GL_RGB16I 0x8D89
 #define GL_RGBA8I 0x8D8E
 #define GL_RGB8I 0x8D8F
+// 每个像素只包含一个整数形式的红色分量
 #define GL_RED_INTEGER 0x8D94
+// 每个像素只包含一个整数形式的绿色分量
 #define GL_GREEN_INTEGER 0x8D95
+// 每个像素只包含一个整数形式的蓝色分量
 #define GL_BLUE_INTEGER 0x8D96
 #define GL_ALPHA_INTEGER 0x8D97
+// 每个像素依次包含整数形式的红色、绿色和蓝色分量
 #define GL_RGB_INTEGER 0x8D98
+// 每个像素依次包含整数形式的红色、绿色、蓝色和 Alpha 分量
 #define GL_RGBA_INTEGER 0x8D99
+// 每个像素依次包含整数形式的蓝色、绿色和红色分量
 #define GL_BGR_INTEGER 0x8D9A
+// 每个像素依次包含整数形式的蓝色、绿色、红色和 Alpha 分量
 #define GL_BGRA_INTEGER 0x8D9B
 #define GL_SAMPLER_1D_ARRAY 0x8DC0
 #define GL_SAMPLER_2D_ARRAY 0x8DC1
@@ -3477,6 +3551,7 @@ typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINDIRECTPROC) (GLenum mode, GLenum t
 #define GL_DEPTH_STENCIL_ATTACHMENT 0x821A
 #define GL_INDEX 0x8222
 #define GL_MAX_RENDERBUFFER_SIZE 0x84E8
+// 每个像素包含一个深度值和一个模板值
 #define GL_DEPTH_STENCIL 0x84F9
 #define GL_UNSIGNED_INT_24_8 0x84FA
 #define GL_DEPTH24_STENCIL8 0x88F0
@@ -3782,6 +3857,7 @@ typedef void (GLAPIENTRY * PFNGLUNIFORMMATRIX4X3DVPROC) (GLint location, GLsizei
 #ifndef GL_ARB_half_float_vertex
 #define GL_ARB_half_float_vertex 1
 
+// 半精度浮点数
 #define GL_HALF_FLOAT 0x140B
 
 #define GLEW_ARB_half_float_vertex GLEW_GET_VAR(__GLEW_ARB_half_float_vertex)
@@ -5051,6 +5127,10 @@ typedef void (GLAPIENTRY * PFNGLPATCHPARAMETERIPROC) (GLenum pname, GLint value)
 #ifndef GL_ARB_texture_border_clamp
 #define GL_ARB_texture_border_clamp 1
 
+/*
+ 在[0.0,1.0]范围外的参数值用单独定义的边界颜色或纹理边缘进行绘制。适合于绘制物体表面的贴花纸。
+ CLAMP_TO_BORDER_ARB在所有mipmap层次上对纹理坐标进行截取，使nearest和linear过滤只返回边界纹理单元的颜色。
+ */
 #define GL_CLAMP_TO_BORDER_ARB 0x812D
 
 #define GLEW_ARB_texture_border_clamp GLEW_GET_VAR(__GLEW_ARB_texture_border_clamp)
@@ -5299,6 +5379,7 @@ typedef void (GLAPIENTRY * PFNGLGETCOMPRESSEDTEXIMAGEARBPROC) (GLenum target, GL
 #ifndef GL_ARB_texture_mirrored_repeat
 #define GL_ARB_texture_mirrored_repeat 1
 
+// 图象在物体表面上不断重复，但是每次重复的时候对图象进行镜像或者反转。这样在纹理边缘处比较连贯。
 #define GL_MIRRORED_REPEAT_ARB 0x8370
 
 #define GLEW_ARB_texture_mirrored_repeat GLEW_GET_VAR(__GLEW_ARB_texture_mirrored_repeat)
@@ -5388,7 +5469,9 @@ typedef void (GLAPIENTRY * PFNGLTEXIMAGE3DMULTISAMPLEPROC) (GLenum target, GLsiz
 #define GL_RED 0x1903
 #define GL_COMPRESSED_RED 0x8225
 #define GL_COMPRESSED_RG 0x8226
+// 每个像素依次包含一个红色和一个绿色分量
 #define GL_RG 0x8227
+// 每个像素依次包含一个整数形式的红色和一个整数形式的绿色分量
 #define GL_RG_INTEGER 0x8228
 #define GL_R8 0x8229
 #define GL_R16 0x822A

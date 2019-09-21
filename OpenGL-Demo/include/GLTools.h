@@ -156,6 +156,8 @@ GLbyte* gltReadBMPBits(const char *szFileName, int *nWidth, int *nHeight);
 // Load a .TGA file
 GLbyte *gltReadTGABits(const char *szFileName, GLint *iWidth, GLint *iHeight, GLint *iComponents, GLenum *eFormat, GLbyte *pData = NULL);
 
+GLint gltWriteTGA(const char *szFileName);
+
 // Capture the frame buffer and write it as a .tga
 // Does not work on the iPhone
 #ifndef OPENGL_ES
