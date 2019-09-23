@@ -76,7 +76,9 @@
 ### 3、包装的像素格式
 #### UNSIGNED_BYTE_3_3_2、UNSIGNED_BYTE_2_3_3_REV
 ### 4、保存像素
+#### GLint gltGrabScreenTGA(const char *szFileName)
 ### 5、读取像素
+#### GLbyte *gltReadTGABits(const char *szFileName, GLint *iWidth, GLint *iHeight, GLint *iComponents, GLenum *eFormat, GLbyte *pData)
 
 ## 二、载入纹理
 ### 在几何图形中应用纹理贴图时，第一个必要步骤就是讲纹理载入内存。一旦被载入，这些纹理就会成为当前纹理状态的一部分。
@@ -105,15 +107,21 @@
 #### 过滤器：GL_TEXTURE_MAG_FILTER、GL_TEXTURE_MIN_FLITER
 #### 过滤方法：GL_NEAREST、GL_LINEAR
 
+## 四、Mip 贴图
+#### Mip贴图的原理是在加载纹理时加载本纹理图像在不同压缩尺度下的多幅纹理图像，从原始的纹理开始，依次降低纹理的宽高为上一个纹理的一半，直到最后纹理的面积为1*1为止。加载的一系列纹理图像类似于图像金字塔，在渲染上，OpenGL自动根据对象模型的状态加载不同等级的纹理对象。
+### 1、Mip 贴图过滤
+#### GL_FILTER_MIPMAP_SELECTOR，其中，FILTER 指定了被选择的 Mip 层将要使用的纹理过滤器，SELECTOR 则指定了如何选择 Mip 层。
+### 2、生成 Mip 层
+#### void glGenerateMipmap(GLenum target);
 
+## 五、各向异性过滤（Anisotropic texture filtering）
+### 如果我们在进行纹理过滤时考虑了观察角度，那么这种过滤方法就称为各向异性过滤。
+#### 1、确认支持各向异性过滤 GL_EXT_texture_filter_anisotropic
+#### 2、查询支持的各向异性过滤的最大数量 glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY, &fLargest);
+#### 3、设置想要应用的各向异性过滤的数量 glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, fLargest);
 
-
-
-
-
-
-
-
+## 六、纹理压缩
+### 1、压缩纹理
 
 
 

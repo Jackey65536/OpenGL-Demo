@@ -719,9 +719,13 @@ typedef char GLchar;
 #define GL_NEAREST 0x2600
 // 线性过滤
 #define GL_LINEAR 0x2601
+// 选择最邻近 Mip 层，并执行最邻近过滤
 #define GL_NEAREST_MIPMAP_NEAREST 0x2700
+// 选择最邻近 Mip 层，并执行线性过滤
 #define GL_LINEAR_MIPMAP_NEAREST 0x2701
+// 在 Mip 层之间执行线性插补，并执行最邻近过滤
 #define GL_NEAREST_MIPMAP_LINEAR 0x2702
+// 在 Mip 层之间执行线性插补，并执行线性过滤，又称三线性 Mip 贴图
 #define GL_LINEAR_MIPMAP_LINEAR 0x2703
 // 放大过滤器
 #define GL_TEXTURE_MAG_FILTER 0x2800
