@@ -10,6 +10,7 @@
 #### 一个纹理就是一副用来贴到三角形或者多边形上的图片
 ### 4、混合（Blending）
 #### 混合时我们能够将不同的颜色混在一起
+#### OpenGL 自学网站 [http://ogldev.atspace.co.uk/www/tutorial01/tutorial01.html](http://ogldev.atspace.co.uk/www/tutorial01/tutorial01.html)
 
 ## 二、坐标系统
 ### 1、2D笛卡尔坐标
@@ -61,48 +62,50 @@
 ### 5、视口变换
 #### 这是一种伪变换，只是对窗口上的最终输出进行缩放。
 
-#### http://ogldev.atspace.co.uk/www/tutorial01/tutorial01.html
-
 
 #  第五章 基础纹理
 ## 一、原始图像数据
 ### 1、像素包装
 #### 改变或者恢复像素的存储方式
-#### void glPixelStorei(GLenum pname, GLint param); 
-#### void glPixelStoref(GLenum pname, GLfloat param);
+    void glPixelStorei(GLenum pname, GLint param); 
+    void glPixelStoref(GLenum pname, GLfloat param);
 ### 2、像素图
 #### 将颜色缓冲区的内容作为像素图直接读取
-#### void glReadPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *pixels);
+    void glReadPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *pixels);
 ### 3、包装的像素格式
 #### UNSIGNED_BYTE_3_3_2、UNSIGNED_BYTE_2_3_3_REV
 ### 4、保存像素
-#### GLint gltGrabScreenTGA(const char *szFileName)
+    GLint gltGrabScreenTGA(const char *szFileName)
 ### 5、读取像素
-#### GLbyte *gltReadTGABits(const char *szFileName, GLint *iWidth, GLint *iHeight, GLint *iComponents, GLenum *eFormat, GLbyte *pData)
+    GLbyte *gltReadTGABits(const char *szFileName, GLint *iWidth, GLint *iHeight, GLint *iComponents, GLenum *eFormat, GLbyte *pData)
 
 ## 二、载入纹理
 ### 在几何图形中应用纹理贴图时，第一个必要步骤就是讲纹理载入内存。一旦被载入，这些纹理就会成为当前纹理状态的一部分。
 ### 1、从磁盘文件读取纹理数据
-#### void glTexImage1D(GLenum target, GLint level, GLint internalformat, GLsizei width, GLint border, GLenum format, GLenum type, void *data); 相应的还有glTexImage2D，glTexImage3D
+    void glTexImage1D(GLenum target, GLint level, GLint internalformat, GLsizei width, GLint border, GLenum format, GLenum type, void *data); 
+#### 相应的还有 glTexImage2D，glTexImage3D
 ### 2、从颜色缓冲区加载纹理数据（一维和二维）
-#### void glCopyTexImage1D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLint border); 相应的还有glCopyTexImage2D
+    void glCopyTexImage1D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLint border); 
+#### 相应的还有 glCopyTexImage2D
 ### 3、更新纹理
-#### void glTexSubImage1D(GLenum target, GLint level, GLint xOffset, GLsizei width, GLenum format, GLenum type, const GLvoid *data); 相应的还有 glTexSubImage2D、glTexSubImage3D
-#### void glCopyTexSubImage1D(Glenum target, GLint level, GLint xOffset, GLint x, GLint y, GLsizei width); 相应的还有 glCopyTexSubImage2D、glCopyTexSubImage3D
+    void glTexSubImage1D(GLenum target, GLint level, GLint xOffset, GLsizei width, GLenum format, GLenum type, const GLvoid *data); 
+#### 相应的还有 glTexSubImage2D、glTexSubImage3D
+    void glCopyTexSubImage1D(Glenum target, GLint level, GLint xOffset, GLint x, GLint y, GLsizei width); 
+#### 相应的还有 glCopyTexSubImage2D、glCopyTexSubImage3D
 ### 4、管理纹理对象
-#### void glGenTextures(GLsizei n, GLuint *textures);
-#### void glBindTexture(GLenum target, GLuint texture);
-#### void glDeleteTextures(GLsizei n, GLuint *textures);
-#### GLboolean glIsTexture(GLuint texture);
+    void glGenTextures(GLsizei n, GLuint *textures);
+    void glBindTexture(GLenum target, GLuint texture);
+    void glDeleteTextures(GLsizei n, GLuint *textures);
+    GLboolean glIsTexture(GLuint texture);
 
 ## 三、纹理应用
 ### 1、纹理坐标
 #### 坐标 (s, t, r, q)，与定点坐标x、y、z、w相类似
 ### 2、纹理参数
-#### void glTexParameterf(GLenum target, GLenum pname, GLfloat param); // 设置纹理贴图参数
-#### void glTexParameteri(GLenum target, GLenum pname, GLint param);
-#### void glTexParameterfv(GLenum target, GLenum pname, GLfloat *param);
-#### void glTexParameteriv(GLenum target, GLenum pname, GLint *param);
+    void glTexParameterf(GLenum target, GLenum pname, GLfloat param); // 设置纹理贴图参数
+    void glTexParameteri(GLenum target, GLenum pname, GLint param);
+    void glTexParameterfv(GLenum target, GLenum pname, GLfloat *param);
+    void glTexParameteriv(GLenum target, GLenum pname, GLint *param);
 #### 根据一个拉伸或收缩的纹理贴图计算颜色片段的过程称为纹理过滤（Texture Filtering）
 #### 过滤器：GL_TEXTURE_MAG_FILTER、GL_TEXTURE_MIN_FLITER
 #### 过滤方法：GL_NEAREST、GL_LINEAR
@@ -112,13 +115,15 @@
 ### 1、Mip 贴图过滤
 #### GL_FILTER_MIPMAP_SELECTOR，其中，FILTER 指定了被选择的 Mip 层将要使用的纹理过滤器，SELECTOR 则指定了如何选择 Mip 层。
 ### 2、生成 Mip 层
-#### void glGenerateMipmap(GLenum target);
+    void glGenerateMipmap(GLenum target);
 
 ## 五、各向异性过滤（Anisotropic texture filtering）
 ### 如果我们在进行纹理过滤时考虑了观察角度，那么这种过滤方法就称为各向异性过滤。
 #### 1、确认支持各向异性过滤 GL_EXT_texture_filter_anisotropic
-#### 2、查询支持的各向异性过滤的最大数量 glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY, &fLargest);
-#### 3、设置想要应用的各向异性过滤的数量 glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, fLargest);
+#### 2、查询支持的各向异性过滤的最大数量 
+    glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY, &fLargest);
+#### 3、设置想要应用的各向异性过滤的数量 
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, fLargest);
 
 ## 六、纹理压缩
 ### 1、压缩纹理
