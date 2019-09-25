@@ -17,7 +17,7 @@
 		0D00FF26231C1D8A00A6DE1E /* ccube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D00FF25231C1D8A00A6DE1E /* ccube.cpp */; };
 		0D00FF29231C1DD300A6DE1E /* ambient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D00FF28231C1DD300A6DE1E /* ambient.cpp */; };
 		0D068378231976A000ADCBC6 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D068377231976A000ADCBC6 /* GLUT.framework */; };
-		0D4088BC231ABF2F004B88FB /* GlutQuadsDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D4088BB231ABF2F004B88FB /* GlutQuadsDemo.cpp */; };
+		0D4088BC231ABF2F004B88FB /* QuadsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D4088BB231ABF2F004B88FB /* QuadsTest.cpp */; };
 		0DDBD9B72308652B0087A48A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDBD9B62308652B0087A48A /* OpenGL.framework */; };
 		0DDBD9BB2308653F0087A48A /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDBD9BA2308653F0087A48A /* libGLTools.a */; };
 		0DDBDA33230865530087A48A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBD9BC230865520087A48A /* main.cpp */; };
@@ -77,7 +77,7 @@
 		0DDBDA70230865530087A48A /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBDA2C230865520087A48A /* test.cpp */; };
 		0DDBDA71230865530087A48A /* transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBDA2E230865520087A48A /* transform.cpp */; };
 		0DDBDA72230865530087A48A /* transformgl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBDA30230865520087A48A /* transformgl.cpp */; };
-		0DDBDA73230865530087A48A /* glut_double_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBDA32230865520087A48A /* glut_double_test.cpp */; };
+		0DDBDA73230865530087A48A /* DoubleTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBDA32230865520087A48A /* DoubleTest.cpp */; };
 		0DDBDA752308FB730087A48A /* first.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBDA742308FB730087A48A /* first.cpp */; };
 		56DC749F230D23CC006E240D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 56DC749E230D23CC006E240D /* README.md */; };
 		56E50810233B76D800165EBB /* GLBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E5080B233B76D800165EBB /* GLBatch.cpp */; };
@@ -151,7 +151,7 @@
 		56E508AA233B796400165EBB /* stone.tga in Resources */ = {isa = PBXBuildFile; fileRef = 56E50868233B796400165EBB /* stone.tga */; };
 		56E508AB233B796400165EBB /* TexturedTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50869233B796400165EBB /* TexturedTriangle.cpp */; };
 		56E508AC233B796400165EBB /* TexturedIdentity.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5086A233B796400165EBB /* TexturedIdentity.fp */; };
-		56E508AE233B7B5900165EBB /* demo_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E508AD233B7B5900165EBB /* demo_test.cpp */; };
+		56E508AE233B7B5900165EBB /* DemoTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E508AD233B7B5900165EBB /* DemoTest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,7 +165,7 @@
 		0D00FF25231C1D8A00A6DE1E /* ccube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ccube.cpp; sourceTree = "<group>"; };
 		0D00FF28231C1DD300A6DE1E /* ambient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ambient.cpp; sourceTree = "<group>"; };
 		0D068377231976A000ADCBC6 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
-		0D4088BB231ABF2F004B88FB /* GlutQuadsDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GlutQuadsDemo.cpp; sourceTree = "<group>"; };
+		0D4088BB231ABF2F004B88FB /* QuadsTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = QuadsTest.cpp; sourceTree = "<group>"; };
 		0DDBD982230864BA0087A48A /* OpenGL-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenGL-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DDBD990230864BA0087A48A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DDBD993230864BA0087A48A /* OpenGL_Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenGL_Demo.entitlements; sourceTree = "<group>"; };
@@ -242,7 +242,7 @@
 		0DDBDA2C230865520087A48A /* test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
 		0DDBDA2E230865520087A48A /* transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = transform.cpp; sourceTree = "<group>"; };
 		0DDBDA30230865520087A48A /* transformgl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = transformgl.cpp; sourceTree = "<group>"; };
-		0DDBDA32230865520087A48A /* glut_double_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = glut_double_test.cpp; sourceTree = "<group>"; };
+		0DDBDA32230865520087A48A /* DoubleTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DoubleTest.cpp; sourceTree = "<group>"; };
 		0DDBDA742308FB730087A48A /* first.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = first.cpp; sourceTree = "<group>"; };
 		56DC749E230D23CC006E240D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		56E5080B233B76D800165EBB /* GLBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLBatch.cpp; sourceTree = "<group>"; };
@@ -316,7 +316,7 @@
 		56E50868233B796400165EBB /* stone.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = stone.tga; sourceTree = "<group>"; };
 		56E50869233B796400165EBB /* TexturedTriangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TexturedTriangle.cpp; sourceTree = "<group>"; };
 		56E5086A233B796400165EBB /* TexturedIdentity.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TexturedIdentity.fp; sourceTree = "<group>"; };
-		56E508AD233B7B5900165EBB /* demo_test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = demo_test.cpp; sourceTree = "<group>"; };
+		56E508AD233B7B5900165EBB /* DemoTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DemoTest.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,7 +333,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0D00FF0E231C19B000A6DE1E /* chapt05 */ = {
+		0D00FF0E231C19B000A6DE1E /* Chapter05 */ = {
 			isa = PBXGroup;
 			children = (
 				0D00FF27231C1DC600A6DE1E /* ambient */,
@@ -346,7 +346,7 @@
 				0D00FF12231C1AB200A6DE1E /* spot */,
 				0D00FF0F231C19F300A6DE1E /* triangle */,
 			);
-			path = chapt05;
+			path = Chapter05;
 			sourceTree = "<group>";
 		};
 		0D00FF0F231C19F300A6DE1E /* triangle */ = {
@@ -533,23 +533,23 @@
 		0DDBD9F6230865520087A48A /* src */ = {
 			isa = PBXGroup;
 			children = (
-				0DDBD9F7230865520087A48A /* chapt01 */,
-				0DDBD9FE230865520087A48A /* chapt02 */,
-				0DDBDA06230865520087A48A /* chapt03 */,
-				0DDBDA1F230865520087A48A /* chapt04 */,
-				0D00FF0E231C19B000A6DE1E /* chapt05 */,
-				563EF16A233B194A008CF9AE /* chapt06 */,
-				0DDBDA31230865520087A48A /* test */,
+				0DDBD9F7230865520087A48A /* Chapter01 */,
+				0DDBD9FE230865520087A48A /* Chapter02 */,
+				0DDBDA06230865520087A48A /* Chapter03 */,
+				0DDBDA1F230865520087A48A /* Chapter04 */,
+				0D00FF0E231C19B000A6DE1E /* Chapter05 */,
+				563EF16A233B194A008CF9AE /* Chapter06 */,
+				0DDBDA31230865520087A48A /* Test */,
 			);
 			path = src;
 			sourceTree = "<group>";
 		};
-		0DDBD9F7230865520087A48A /* chapt01 */ = {
+		0DDBD9F7230865520087A48A /* Chapter01 */ = {
 			isa = PBXGroup;
 			children = (
 				0DDBD9F8230865520087A48A /* block */,
 			);
-			path = chapt01;
+			path = Chapter01;
 			sourceTree = "<group>";
 		};
 		0DDBD9F8230865520087A48A /* block */ = {
@@ -564,14 +564,14 @@
 			path = block;
 			sourceTree = "<group>";
 		};
-		0DDBD9FE230865520087A48A /* chapt02 */ = {
+		0DDBD9FE230865520087A48A /* Chapter02 */ = {
 			isa = PBXGroup;
 			children = (
 				0DDBD9FF230865520087A48A /* bounce */,
 				0DDBDA01230865520087A48A /* glrect */,
 				0DDBDA03230865520087A48A /* simple */,
 			);
-			path = chapt02;
+			path = Chapter02;
 			sourceTree = "<group>";
 		};
 		0DDBD9FF230865520087A48A /* bounce */ = {
@@ -599,7 +599,7 @@
 			path = simple;
 			sourceTree = "<group>";
 		};
-		0DDBDA06230865520087A48A /* chapt03 */ = {
+		0DDBDA06230865520087A48A /* Chapter03 */ = {
 			isa = PBXGroup;
 			children = (
 				0DDBDA07230865520087A48A /* lines */,
@@ -615,7 +615,7 @@
 				0DDBDA1B230865520087A48A /* stencil */,
 				0DDBDA1D230865520087A48A /* triangle */,
 			);
-			path = chapt03;
+			path = Chapter03;
 			sourceTree = "<group>";
 		};
 		0DDBDA07230865520087A48A /* lines */ = {
@@ -714,7 +714,7 @@
 			path = triangle;
 			sourceTree = "<group>";
 		};
-		0DDBDA1F230865520087A48A /* chapt04 */ = {
+		0DDBDA1F230865520087A48A /* Chapter04 */ = {
 			isa = PBXGroup;
 			children = (
 				0DDBDA20230865520087A48A /* Atom */,
@@ -727,7 +727,7 @@
 				0DDBDA2D230865520087A48A /* Transform */,
 				0DDBDA2F230865520087A48A /* Transformgl */,
 			);
-			path = chapt04;
+			path = Chapter04;
 			sourceTree = "<group>";
 		};
 		0DDBDA20230865520087A48A /* Atom */ = {
@@ -794,17 +794,17 @@
 			path = Transformgl;
 			sourceTree = "<group>";
 		};
-		0DDBDA31230865520087A48A /* test */ = {
+		0DDBDA31230865520087A48A /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				0DDBDA32230865520087A48A /* glut_double_test.cpp */,
-				0D4088BB231ABF2F004B88FB /* GlutQuadsDemo.cpp */,
-				56E508AD233B7B5900165EBB /* demo_test.cpp */,
+				0DDBDA32230865520087A48A /* DoubleTest.cpp */,
+				0D4088BB231ABF2F004B88FB /* QuadsTest.cpp */,
+				56E508AD233B7B5900165EBB /* DemoTest.cpp */,
 			);
-			path = test;
+			path = Test;
 			sourceTree = "<group>";
 		};
-		563EF16A233B194A008CF9AE /* chapt06 */ = {
+		563EF16A233B194A008CF9AE /* Chapter06 */ = {
 			isa = PBXGroup;
 			children = (
 				56E50822233B796300165EBB /* ADSGouraud */,
@@ -828,7 +828,7 @@
 				56E50815233B796200165EBB /* ToonShader_jingz */,
 				56E50826233B796300165EBB /* Triangle */,
 			);
-			path = chapt06;
+			path = Chapter06;
 			sourceTree = "<group>";
 		};
 		56E50815233B796200165EBB /* ToonShader_jingz */ = {
@@ -1200,7 +1200,7 @@
 				0DDBDA5A230865530087A48A /* bounce.cpp in Sources */,
 				0DDBDA45230865530087A48A /* move.cpp in Sources */,
 				0DDBDA52230865530087A48A /* sphere5.cpp in Sources */,
-				0DDBDA73230865530087A48A /* glut_double_test.cpp in Sources */,
+				0DDBDA73230865530087A48A /* DoubleTest.cpp in Sources */,
 				0DDBDA63230865530087A48A /* pointsz.cpp in Sources */,
 				56E50897233B796400165EBB /* ToonShader.cpp in Sources */,
 				0D00FF26231C1D8A00A6DE1E /* ccube.cpp in Sources */,
@@ -1221,11 +1221,11 @@
 				0DDBDA5F230865530087A48A /* linesw.cpp in Sources */,
 				0DDBDA43230865530087A48A /* modelview_projection.cpp in Sources */,
 				56E50813233B76D900165EBB /* GLTriangleBatch.cpp in Sources */,
-				0D4088BC231ABF2F004B88FB /* GlutQuadsDemo.cpp in Sources */,
+				0D4088BC231ABF2F004B88FB /* QuadsTest.cpp in Sources */,
 				0D00FF23231C1D5400A6DE1E /* jet.cpp in Sources */,
 				0DDBDA5B230865530087A48A /* glrect.cpp in Sources */,
 				0D00FF11231C1A0E00A6DE1E /* triangle.cpp in Sources */,
-				56E508AE233B7B5900165EBB /* demo_test.cpp in Sources */,
+				56E508AE233B7B5900165EBB /* DemoTest.cpp in Sources */,
 				56E508A4233B796400165EBB /* ADSPhong.cpp in Sources */,
 				0DDBDA4C230865530087A48A /* scissor.cpp in Sources */,
 				0DDBDA6D230865530087A48A /* perspect.cpp in Sources */,

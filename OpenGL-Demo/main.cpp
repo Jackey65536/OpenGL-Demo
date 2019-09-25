@@ -1,190 +1,114 @@
+#define MAIN_SPACE(name) namespace name { int main(int argc, char* argv[]); }
+
+// Demo
+namespace Demo {
+    MAIN_SPACE(Anisotropic)
+    MAIN_SPACE(Blending)
+    MAIN_SPACE(First)
+    MAIN_SPACE(Geotest)
+    MAIN_SPACE(Modelview_projection)
+    MAIN_SPACE(Move)
+    MAIN_SPACE(Movebymatrix)
+    MAIN_SPACE(Objects)
+    MAIN_SPACE(Orthographic)
+    MAIN_SPACE(Perspective)
+    MAIN_SPACE(Primitives)
+    MAIN_SPACE(Pyramid)
+    MAIN_SPACE(Scissor)
+    MAIN_SPACE(Smoother)
+    MAIN_SPACE(Sphere1)
+    MAIN_SPACE(Sphere2)
+    MAIN_SPACE(Sphere3)
+    MAIN_SPACE(Sphere4)
+    MAIN_SPACE(Sphere5)
+    MAIN_SPACE(Tunnel)
+}
+
+// Test
+namespace Test {
+    MAIN_SPACE(DoubleTest)
+    MAIN_SPACE(QuadsTest)
+    MAIN_SPACE(DemoTest)
+}
 
 // Chapter01
 namespace Ch01 {
-    namespace Block {
-        int main(int argc, char* argv[]);
-    }
+    MAIN_SPACE(Block)
 }
 
 // Chapter02
 namespace Ch02 {
-    namespace Bounce {
-        int main(int argc, char* argv[]);
-    }
-    
-    namespace Glrect {
-        int main(int argc, char* argv[]);
-    }
-    
-    namespace Simple {
-        int main(int argc, char* argv[]);
-    }
+    MAIN_SPACE(Bounce)
+    MAIN_SPACE(Glrect)
+    MAIN_SPACE(Simple)
 }
 
 // Chapter03
 namespace Ch03 {
-    namespace Lines {
-        int main(int argc, char* argv[]);
-    }
-    namespace Linesw {
-        int main(int argc, char* argv[]);
-    }
-    namespace Lstipple {
-        int main(int argc, char* argv[]);
-    }
-    namespace Lstrips {
-        int main(int argc, char* argv[]);
-    }
-    namespace Points {
-        int main(int argc, char* argv[]);
-    }
-    namespace Pointsz {
-        int main(int argc, char* argv[]);
-    }
-    namespace Pstipple {
-        int main(int argc, char* argv[]);
-    }
-    namespace Scissor {
-        int main(int argc, char* argv[]);
-    }
-    namespace Single {
-        int main(int argc, char* argv[]);
-    }
-    namespace Star {
-        int main(int argc, char* argv[]);
-    }
-    namespace Stencil {
-        int main(int argc, char* argv[]);
-    }
-    namespace Triangle {
-        int main(int argc, char* argv[]);
-    }
+    MAIN_SPACE(Lines)
+    MAIN_SPACE(Linesw)
+    MAIN_SPACE(Lstipple)
+    MAIN_SPACE(Lstrips)
+    MAIN_SPACE(Points)
+    MAIN_SPACE(Pointsz)
+    MAIN_SPACE(Pstipple)
+    MAIN_SPACE(Scissor)
+    MAIN_SPACE(Single)
+    MAIN_SPACE(Star)
+    MAIN_SPACE(Stencil)
+    MAIN_SPACE(Triangle)
 }
 
 // Chapter04
 namespace Ch04 {
-    namespace Atom {
-        int main(int argc, char* argv[]);
-    }
-    namespace Atom2 {
-        int main(int argc, char* argv[]);
-    }
-    namespace Ortho {
-        int main(int argc, char* argv[]);
-    }
-    namespace Perspect {
-        int main(int argc, char* argv[]);
-    }
-    namespace Solar {
-        int main(int argc, char* argv[]);
-    }
-    namespace SphereWorld {
-        int main(int argc, char* argv[]);
-    }
-    namespace Transform {
-        int main(int argc, char* argv[]);
-    }
-    namespace Transformgl {
-        int main(int argc, char* argv[]);
-    }
+    MAIN_SPACE(Atom)
+    MAIN_SPACE(Atom2)
+    MAIN_SPACE(Ortho)
+    MAIN_SPACE(Perspect)
+    MAIN_SPACE(Solar)
+    MAIN_SPACE(SphereWorld)
+    MAIN_SPACE(Transform)
+    MAIN_SPACE(Transformgl)
 }
 
 // Chapter05
 namespace Ch05 {
-    namespace Ambient {
-        int main(int argc, char* argv[]);
-    }
-    namespace Ccube {
-        int main(int argc, char* argv[]);
-    }
-    namespace Jet {
-        int main(int argc, char* argv[]);
-    }
-    namespace Litjet {
-        int main(int argc, char* argv[]);
-    }
-    namespace Shadow {
-        int main(int argc, char* argv[]);
-    }
-    namespace Shinyjet {
-        int main(int argc, char* argv[]);
-    }
-    namespace Sphereworld {
-        int main(int argc, char* argv[]);
-    }
-    namespace Spot {
-        int main(int argc, char* argv[]);
-    }
-    namespace Triangle {
-        int main(int argc, char* argv[]);
-    }
+    MAIN_SPACE(Ambient)
+    MAIN_SPACE(Ccube)
+    MAIN_SPACE(Jet)
+    MAIN_SPACE(Litjet)
+    MAIN_SPACE(Shadow)
+    MAIN_SPACE(Shinyjet)
+    MAIN_SPACE(Sphereworld)
+    MAIN_SPACE(Spot)
+    MAIN_SPACE(Triangle)
 }
 
 // Chapter06
 namespace Ch06 {
-    namespace ADSGouraud {
-        int main(int argc, char* argv[]);
-    }
-    namespace ADSGouraud_jingz {
-        int main(int argc, char* argv[]);
-    }
-    namespace ADSPhong {
-        int main(int argc, char* argv[]);
-    }
-    namespace ADSPhong_jingz {
-        int main(int argc, char* argv[]);
-    }
-    namespace DiffuseLight {
-        int main(int argc, char* argv[]);
-    }
-    namespace DiffuseLight_jingz {
-        int main(int argc, char* argv[]);
-    }
-    namespace Dissolve {
-        int main(int argc, char* argv[]);
-    }
-    namespace Dissolve_jingz {
-        int main(int argc, char* argv[]);
-    }
-    namespace FlatShader {
-        int main(int argc, char* argv[]);
-    }
-    namespace FlatShader_jingz {
-        int main(int argc, char* argv[]);
-    }
-    namespace LitTexture {
-        int main(int argc, char* argv[]);
-    }
-    namespace Littexture_jingz {
-        int main(int argc, char* argv[]);
-    }
-    namespace ProvokingVertex {
-        int main(int argc, char* argv[]);
-    }
-    namespace ShadedTriangle {
-        int main(int argc, char* argv[]);
-    }
-    namespace ShadedTriangle_jingz {
-        int main(int argc, char* argv[]);
-    }
-    namespace TexturedTriangle {
-        int main(int argc, char* argv[]);
-    }
-    namespace TexturedTriangle_jingz {
-        int main(int argc, char* argv[]);
-    }
-    namespace ToonShader {
-        int main(int argc, char* argv[]);
-    }
-    namespace ToonShader_jingz {
-        int main(int argc, char* argv[]);
-    }
-    namespace Triangle {
-        int main(int argc, char* argv[]);
-    }
+    MAIN_SPACE(ADSGouraud)
+    MAIN_SPACE(ADSGouraud_jingz)
+    MAIN_SPACE(ADSPhong)
+    MAIN_SPACE(ADSPhong_jingz)
+    MAIN_SPACE(DiffuseLight)
+    MAIN_SPACE(DiffuseLight_jingz)
+    MAIN_SPACE(Dissolve)
+    MAIN_SPACE(Dissolve_jingz)
+    MAIN_SPACE(FlatShader)
+    MAIN_SPACE(FlatShader_jingz)
+    MAIN_SPACE(LitTexture)
+    MAIN_SPACE(Littexture_jingz)
+    MAIN_SPACE(ProvokingVertex)
+    MAIN_SPACE(ShadedTriangle)
+    MAIN_SPACE(ShadedTriangle_jingz)
+    MAIN_SPACE(TexturedTriangle)
+    MAIN_SPACE(TexturedTriangle_jingz)
+    MAIN_SPACE(ToonShader)
+    MAIN_SPACE(ToonShader_jingz)
+    MAIN_SPACE(Triangle)
 }
 
 int main(int argc, char* argv[])
 {
-    return Ch02::Bounce::main(argc, argv);
+    return Demo::Sphere5::main(argc, argv);
 }
