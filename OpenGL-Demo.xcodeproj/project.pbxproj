@@ -17,15 +17,10 @@
 		0D00FF26231C1D8A00A6DE1E /* ccube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D00FF25231C1D8A00A6DE1E /* ccube.cpp */; };
 		0D00FF29231C1DD300A6DE1E /* ambient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D00FF28231C1DD300A6DE1E /* ambient.cpp */; };
 		0D068378231976A000ADCBC6 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D068377231976A000ADCBC6 /* GLUT.framework */; };
-		0D3E2E852312170F00D4832D /* GLTriangleBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D3E2E812312170E00D4832D /* GLTriangleBatch.cpp */; };
-		0D3E2E862312170F00D4832D /* GLShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D3E2E822312170E00D4832D /* GLShaderManager.cpp */; };
-		0D3E2E872312170F00D4832D /* GLBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D3E2E832312170F00D4832D /* GLBatch.cpp */; };
-		0D3E2E882312170F00D4832D /* GLTools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D3E2E842312170F00D4832D /* GLTools.cpp */; };
 		0D4088BC231ABF2F004B88FB /* GlutQuadsDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D4088BB231ABF2F004B88FB /* GlutQuadsDemo.cpp */; };
 		0DDBD9B72308652B0087A48A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDBD9B62308652B0087A48A /* OpenGL.framework */; };
 		0DDBD9BB2308653F0087A48A /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDBD9BA2308653F0087A48A /* libGLTools.a */; };
 		0DDBDA33230865530087A48A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBD9BC230865520087A48A /* main.cpp */; };
-		0DDBDA3A230865530087A48A /* math3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBD9D8230865520087A48A /* math3d.cpp */; };
 		0DDBDA3B230865530087A48A /* anisotropic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBD9DC230865520087A48A /* anisotropic.cpp */; };
 		0DDBDA3C230865530087A48A /* blending.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBD9DD230865520087A48A /* blending.cpp */; };
 		0DDBDA3D230865530087A48A /* brick.tga in Resources */ = {isa = PBXBuildFile; fileRef = 0DDBD9DE230865520087A48A /* brick.tga */; };
@@ -85,6 +80,78 @@
 		0DDBDA73230865530087A48A /* glut_double_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBDA32230865520087A48A /* glut_double_test.cpp */; };
 		0DDBDA752308FB730087A48A /* first.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBDA742308FB730087A48A /* first.cpp */; };
 		56DC749F230D23CC006E240D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 56DC749E230D23CC006E240D /* README.md */; };
+		56E50810233B76D800165EBB /* GLBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E5080B233B76D800165EBB /* GLBatch.cpp */; };
+		56E50811233B76D900165EBB /* GLTools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E5080C233B76D800165EBB /* GLTools.cpp */; };
+		56E50812233B76D900165EBB /* math3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E5080D233B76D800165EBB /* math3d.cpp */; };
+		56E50813233B76D900165EBB /* GLTriangleBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E5080E233B76D800165EBB /* GLTriangleBatch.cpp */; };
+		56E50814233B76D900165EBB /* GLShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E5080F233B76D800165EBB /* GLShaderManager.cpp */; };
+		56E5086B233B796400165EBB /* toonShader.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50816233B796200165EBB /* toonShader.vp */; };
+		56E5086C233B796400165EBB /* toonShader.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50817233B796200165EBB /* toonShader.fp */; };
+		56E5086D233B796400165EBB /* ToonShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50818233B796200165EBB /* ToonShader.cpp */; };
+		56E5086E233B796400165EBB /* Dissolve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E5081A233B796300165EBB /* Dissolve.cpp */; };
+		56E5086F233B796400165EBB /* Dissolve.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5081B233B796300165EBB /* Dissolve.vp */; };
+		56E50870233B796400165EBB /* Clouds.tga in Resources */ = {isa = PBXBuildFile; fileRef = 56E5081C233B796300165EBB /* Clouds.tga */; };
+		56E50871233B796400165EBB /* Dissolve.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5081D233B796300165EBB /* Dissolve.fp */; };
+		56E50872233B796400165EBB /* ProvokingVertex.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5081F233B796300165EBB /* ProvokingVertex.vp */; };
+		56E50873233B796400165EBB /* ProvokingVertex.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50820233B796300165EBB /* ProvokingVertex.fp */; };
+		56E50874233B796400165EBB /* ProvokingVertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50821233B796300165EBB /* ProvokingVertex.cpp */; };
+		56E50875233B796400165EBB /* ADSGouraud.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50823233B796300165EBB /* ADSGouraud.vp */; };
+		56E50876233B796400165EBB /* ADSGouraud.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50824233B796300165EBB /* ADSGouraud.cpp */; };
+		56E50877233B796400165EBB /* ADSGouraud.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50825233B796300165EBB /* ADSGouraud.fp */; };
+		56E50878233B796400165EBB /* Identity.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50827233B796300165EBB /* Identity.vp */; };
+		56E50879233B796400165EBB /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50828233B796300165EBB /* Triangle.cpp */; };
+		56E5087A233B796400165EBB /* Identity.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50829233B796300165EBB /* Identity.fp */; };
+		56E5087B233B796400165EBB /* ADSGouraud.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5082B233B796300165EBB /* ADSGouraud.vp */; };
+		56E5087C233B796400165EBB /* ADSGouraud.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E5082C233B796300165EBB /* ADSGouraud.cpp */; };
+		56E5087D233B796400165EBB /* ADSGouraud.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5082D233B796300165EBB /* ADSGouraud.fp */; };
+		56E5087E233B796400165EBB /* DiffuseLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E5082F233B796300165EBB /* DiffuseLight.cpp */; };
+		56E5087F233B796400165EBB /* DiffuseLight.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50830233B796300165EBB /* DiffuseLight.fp */; };
+		56E50880233B796400165EBB /* DiffuseLight.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50831233B796300165EBB /* DiffuseLight.vp */; };
+		56E50881233B796400165EBB /* FlatShader.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50833233B796300165EBB /* FlatShader.vp */; };
+		56E50882233B796400165EBB /* FlatShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50834233B796300165EBB /* FlatShader.cpp */; };
+		56E50883233B796400165EBB /* FlatShader.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50835233B796300165EBB /* FlatShader.fp */; };
+		56E50884233B796400165EBB /* DiffuseLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50837233B796300165EBB /* DiffuseLight.cpp */; };
+		56E50885233B796400165EBB /* DiffuseLight.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50838233B796300165EBB /* DiffuseLight.fp */; };
+		56E50886233B796400165EBB /* DiffuseLight.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50839233B796300165EBB /* DiffuseLight.vp */; };
+		56E50887233B796400165EBB /* FlatShader.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5083B233B796300165EBB /* FlatShader.vp */; };
+		56E50888233B796400165EBB /* FlatShader_jingz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E5083C233B796300165EBB /* FlatShader_jingz.cpp */; };
+		56E50889233B796400165EBB /* FlatShader.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5083D233B796300165EBB /* FlatShader.fp */; };
+		56E5088A233B796400165EBB /* TexturedIdentity.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5083F233B796300165EBB /* TexturedIdentity.vp */; };
+		56E5088B233B796400165EBB /* stone.tga in Resources */ = {isa = PBXBuildFile; fileRef = 56E50840233B796300165EBB /* stone.tga */; };
+		56E5088C233B796400165EBB /* TexturedTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50841233B796300165EBB /* TexturedTriangle.cpp */; };
+		56E5088D233B796400165EBB /* TexturedIdentity.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50842233B796300165EBB /* TexturedIdentity.fp */; };
+		56E5088E233B796400165EBB /* LitTexture.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50844233B796300165EBB /* LitTexture.vp */; };
+		56E5088F233B796400165EBB /* CoolTexture.tga in Resources */ = {isa = PBXBuildFile; fileRef = 56E50845233B796300165EBB /* CoolTexture.tga */; };
+		56E50890233B796400165EBB /* LitTexture.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50846233B796300165EBB /* LitTexture.fp */; };
+		56E50891233B796400165EBB /* LitTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50847233B796300165EBB /* LitTexture.cpp */; };
+		56E50892233B796400165EBB /* ShadedTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50849233B796300165EBB /* ShadedTriangle.cpp */; };
+		56E50893233B796400165EBB /* ShadedTriangle.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5084A233B796300165EBB /* ShadedTriangle.fp */; };
+		56E50894233B796400165EBB /* ShadedTriangle.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5084B233B796300165EBB /* ShadedTriangle.vp */; };
+		56E50895233B796400165EBB /* ToonShader.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5084D233B796300165EBB /* ToonShader.vp */; };
+		56E50896233B796400165EBB /* ToonShader.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5084E233B796300165EBB /* ToonShader.fp */; };
+		56E50897233B796400165EBB /* ToonShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E5084F233B796300165EBB /* ToonShader.cpp */; };
+		56E50898233B796400165EBB /* Dissolve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50851233B796300165EBB /* Dissolve.cpp */; };
+		56E50899233B796400165EBB /* Dissolve.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50852233B796300165EBB /* Dissolve.vp */; };
+		56E5089A233B796400165EBB /* Clouds.tga in Resources */ = {isa = PBXBuildFile; fileRef = 56E50853233B796300165EBB /* Clouds.tga */; };
+		56E5089B233B796400165EBB /* Dissolve.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50854233B796300165EBB /* Dissolve.fp */; };
+		56E5089C233B796400165EBB /* ADSPhong.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50856233B796300165EBB /* ADSPhong.fp */; };
+		56E5089D233B796400165EBB /* ADSPhong.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50857233B796300165EBB /* ADSPhong.vp */; };
+		56E5089E233B796400165EBB /* ADSPhong.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50858233B796300165EBB /* ADSPhong.cpp */; };
+		56E5089F233B796400165EBB /* ShadedIdentity.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5085A233B796300165EBB /* ShadedIdentity.fp */; };
+		56E508A0233B796400165EBB /* ShadedTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E5085B233B796300165EBB /* ShadedTriangle.cpp */; };
+		56E508A1233B796400165EBB /* ShadedIdentity.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5085C233B796300165EBB /* ShadedIdentity.vp */; };
+		56E508A2233B796400165EBB /* ADSPhong.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5085E233B796300165EBB /* ADSPhong.fp */; };
+		56E508A3233B796400165EBB /* ADSPhong.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5085F233B796300165EBB /* ADSPhong.vp */; };
+		56E508A4233B796400165EBB /* ADSPhong.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50860233B796300165EBB /* ADSPhong.cpp */; };
+		56E508A5233B796400165EBB /* ADSTexture.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50862233B796300165EBB /* ADSTexture.fp */; };
+		56E508A6233B796400165EBB /* CoolTexture.tga in Resources */ = {isa = PBXBuildFile; fileRef = 56E50863233B796300165EBB /* CoolTexture.tga */; };
+		56E508A7233B796400165EBB /* LitTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50864233B796300165EBB /* LitTexture.cpp */; };
+		56E508A8233B796400165EBB /* ADSTexture.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50865233B796300165EBB /* ADSTexture.vp */; };
+		56E508A9233B796400165EBB /* TexturedIdentity.vp in Resources */ = {isa = PBXBuildFile; fileRef = 56E50867233B796400165EBB /* TexturedIdentity.vp */; };
+		56E508AA233B796400165EBB /* stone.tga in Resources */ = {isa = PBXBuildFile; fileRef = 56E50868233B796400165EBB /* stone.tga */; };
+		56E508AB233B796400165EBB /* TexturedTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E50869233B796400165EBB /* TexturedTriangle.cpp */; };
+		56E508AC233B796400165EBB /* TexturedIdentity.fp in Resources */ = {isa = PBXBuildFile; fileRef = 56E5086A233B796400165EBB /* TexturedIdentity.fp */; };
+		56E508AE233B7B5900165EBB /* demo_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56E508AD233B7B5900165EBB /* demo_test.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,10 +165,6 @@
 		0D00FF25231C1D8A00A6DE1E /* ccube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ccube.cpp; sourceTree = "<group>"; };
 		0D00FF28231C1DD300A6DE1E /* ambient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ambient.cpp; sourceTree = "<group>"; };
 		0D068377231976A000ADCBC6 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
-		0D3E2E812312170E00D4832D /* GLTriangleBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLTriangleBatch.cpp; sourceTree = "<group>"; };
-		0D3E2E822312170E00D4832D /* GLShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLShaderManager.cpp; sourceTree = "<group>"; };
-		0D3E2E832312170F00D4832D /* GLBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLBatch.cpp; sourceTree = "<group>"; };
-		0D3E2E842312170F00D4832D /* GLTools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLTools.cpp; sourceTree = "<group>"; };
 		0D4088BB231ABF2F004B88FB /* GlutQuadsDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GlutQuadsDemo.cpp; sourceTree = "<group>"; };
 		0DDBD982230864BA0087A48A /* OpenGL-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenGL-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DDBD990230864BA0087A48A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -121,7 +184,6 @@
 		0DDBD9D5230865520087A48A /* GLShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLShaderManager.h; sourceTree = "<group>"; };
 		0DDBD9D6230865520087A48A /* GLTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTools.h; sourceTree = "<group>"; };
 		0DDBD9D7230865520087A48A /* GLTriangleBatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTriangleBatch.h; sourceTree = "<group>"; };
-		0DDBD9D8230865520087A48A /* math3d.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = math3d.cpp; sourceTree = "<group>"; };
 		0DDBD9D9230865520087A48A /* math3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math3d.h; sourceTree = "<group>"; };
 		0DDBD9DA230865520087A48A /* StopWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopWatch.h; sourceTree = "<group>"; };
 		0DDBD9DC230865520087A48A /* anisotropic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = anisotropic.cpp; sourceTree = "<group>"; };
@@ -183,6 +245,78 @@
 		0DDBDA32230865520087A48A /* glut_double_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = glut_double_test.cpp; sourceTree = "<group>"; };
 		0DDBDA742308FB730087A48A /* first.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = first.cpp; sourceTree = "<group>"; };
 		56DC749E230D23CC006E240D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		56E5080B233B76D800165EBB /* GLBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLBatch.cpp; sourceTree = "<group>"; };
+		56E5080C233B76D800165EBB /* GLTools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLTools.cpp; sourceTree = "<group>"; };
+		56E5080D233B76D800165EBB /* math3d.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = math3d.cpp; sourceTree = "<group>"; };
+		56E5080E233B76D800165EBB /* GLTriangleBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLTriangleBatch.cpp; sourceTree = "<group>"; };
+		56E5080F233B76D800165EBB /* GLShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLShaderManager.cpp; sourceTree = "<group>"; };
+		56E50816233B796200165EBB /* toonShader.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toonShader.vp; sourceTree = "<group>"; };
+		56E50817233B796200165EBB /* toonShader.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toonShader.fp; sourceTree = "<group>"; };
+		56E50818233B796200165EBB /* ToonShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToonShader.cpp; sourceTree = "<group>"; };
+		56E5081A233B796300165EBB /* Dissolve.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dissolve.cpp; sourceTree = "<group>"; };
+		56E5081B233B796300165EBB /* Dissolve.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Dissolve.vp; sourceTree = "<group>"; };
+		56E5081C233B796300165EBB /* Clouds.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Clouds.tga; sourceTree = "<group>"; };
+		56E5081D233B796300165EBB /* Dissolve.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Dissolve.fp; sourceTree = "<group>"; };
+		56E5081F233B796300165EBB /* ProvokingVertex.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ProvokingVertex.vp; sourceTree = "<group>"; };
+		56E50820233B796300165EBB /* ProvokingVertex.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ProvokingVertex.fp; sourceTree = "<group>"; };
+		56E50821233B796300165EBB /* ProvokingVertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProvokingVertex.cpp; sourceTree = "<group>"; };
+		56E50823233B796300165EBB /* ADSGouraud.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADSGouraud.vp; sourceTree = "<group>"; };
+		56E50824233B796300165EBB /* ADSGouraud.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ADSGouraud.cpp; sourceTree = "<group>"; };
+		56E50825233B796300165EBB /* ADSGouraud.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADSGouraud.fp; sourceTree = "<group>"; };
+		56E50827233B796300165EBB /* Identity.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Identity.vp; sourceTree = "<group>"; };
+		56E50828233B796300165EBB /* Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
+		56E50829233B796300165EBB /* Identity.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Identity.fp; sourceTree = "<group>"; };
+		56E5082B233B796300165EBB /* ADSGouraud.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADSGouraud.vp; sourceTree = "<group>"; };
+		56E5082C233B796300165EBB /* ADSGouraud.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ADSGouraud.cpp; sourceTree = "<group>"; };
+		56E5082D233B796300165EBB /* ADSGouraud.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADSGouraud.fp; sourceTree = "<group>"; };
+		56E5082F233B796300165EBB /* DiffuseLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DiffuseLight.cpp; sourceTree = "<group>"; };
+		56E50830233B796300165EBB /* DiffuseLight.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DiffuseLight.fp; sourceTree = "<group>"; };
+		56E50831233B796300165EBB /* DiffuseLight.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DiffuseLight.vp; sourceTree = "<group>"; };
+		56E50833233B796300165EBB /* FlatShader.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FlatShader.vp; sourceTree = "<group>"; };
+		56E50834233B796300165EBB /* FlatShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlatShader.cpp; sourceTree = "<group>"; };
+		56E50835233B796300165EBB /* FlatShader.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FlatShader.fp; sourceTree = "<group>"; };
+		56E50837233B796300165EBB /* DiffuseLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DiffuseLight.cpp; sourceTree = "<group>"; };
+		56E50838233B796300165EBB /* DiffuseLight.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DiffuseLight.fp; sourceTree = "<group>"; };
+		56E50839233B796300165EBB /* DiffuseLight.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DiffuseLight.vp; sourceTree = "<group>"; };
+		56E5083B233B796300165EBB /* FlatShader.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FlatShader.vp; sourceTree = "<group>"; };
+		56E5083C233B796300165EBB /* FlatShader_jingz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlatShader_jingz.cpp; sourceTree = "<group>"; };
+		56E5083D233B796300165EBB /* FlatShader.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FlatShader.fp; sourceTree = "<group>"; };
+		56E5083F233B796300165EBB /* TexturedIdentity.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TexturedIdentity.vp; sourceTree = "<group>"; };
+		56E50840233B796300165EBB /* stone.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = stone.tga; sourceTree = "<group>"; };
+		56E50841233B796300165EBB /* TexturedTriangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TexturedTriangle.cpp; sourceTree = "<group>"; };
+		56E50842233B796300165EBB /* TexturedIdentity.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TexturedIdentity.fp; sourceTree = "<group>"; };
+		56E50844233B796300165EBB /* LitTexture.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LitTexture.vp; sourceTree = "<group>"; };
+		56E50845233B796300165EBB /* CoolTexture.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoolTexture.tga; sourceTree = "<group>"; };
+		56E50846233B796300165EBB /* LitTexture.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LitTexture.fp; sourceTree = "<group>"; };
+		56E50847233B796300165EBB /* LitTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LitTexture.cpp; sourceTree = "<group>"; };
+		56E50849233B796300165EBB /* ShadedTriangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadedTriangle.cpp; sourceTree = "<group>"; };
+		56E5084A233B796300165EBB /* ShadedTriangle.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ShadedTriangle.fp; sourceTree = "<group>"; };
+		56E5084B233B796300165EBB /* ShadedTriangle.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ShadedTriangle.vp; sourceTree = "<group>"; };
+		56E5084D233B796300165EBB /* ToonShader.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToonShader.vp; sourceTree = "<group>"; };
+		56E5084E233B796300165EBB /* ToonShader.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToonShader.fp; sourceTree = "<group>"; };
+		56E5084F233B796300165EBB /* ToonShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToonShader.cpp; sourceTree = "<group>"; };
+		56E50851233B796300165EBB /* Dissolve.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dissolve.cpp; sourceTree = "<group>"; };
+		56E50852233B796300165EBB /* Dissolve.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Dissolve.vp; sourceTree = "<group>"; };
+		56E50853233B796300165EBB /* Clouds.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Clouds.tga; sourceTree = "<group>"; };
+		56E50854233B796300165EBB /* Dissolve.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Dissolve.fp; sourceTree = "<group>"; };
+		56E50856233B796300165EBB /* ADSPhong.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADSPhong.fp; sourceTree = "<group>"; };
+		56E50857233B796300165EBB /* ADSPhong.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADSPhong.vp; sourceTree = "<group>"; };
+		56E50858233B796300165EBB /* ADSPhong.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ADSPhong.cpp; sourceTree = "<group>"; };
+		56E5085A233B796300165EBB /* ShadedIdentity.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ShadedIdentity.fp; sourceTree = "<group>"; };
+		56E5085B233B796300165EBB /* ShadedTriangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadedTriangle.cpp; sourceTree = "<group>"; };
+		56E5085C233B796300165EBB /* ShadedIdentity.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ShadedIdentity.vp; sourceTree = "<group>"; };
+		56E5085E233B796300165EBB /* ADSPhong.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADSPhong.fp; sourceTree = "<group>"; };
+		56E5085F233B796300165EBB /* ADSPhong.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADSPhong.vp; sourceTree = "<group>"; };
+		56E50860233B796300165EBB /* ADSPhong.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ADSPhong.cpp; sourceTree = "<group>"; };
+		56E50862233B796300165EBB /* ADSTexture.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADSTexture.fp; sourceTree = "<group>"; };
+		56E50863233B796300165EBB /* CoolTexture.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoolTexture.tga; sourceTree = "<group>"; };
+		56E50864233B796300165EBB /* LitTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LitTexture.cpp; sourceTree = "<group>"; };
+		56E50865233B796300165EBB /* ADSTexture.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADSTexture.vp; sourceTree = "<group>"; };
+		56E50867233B796400165EBB /* TexturedIdentity.vp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TexturedIdentity.vp; sourceTree = "<group>"; };
+		56E50868233B796400165EBB /* stone.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = stone.tga; sourceTree = "<group>"; };
+		56E50869233B796400165EBB /* TexturedTriangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TexturedTriangle.cpp; sourceTree = "<group>"; };
+		56E5086A233B796400165EBB /* TexturedIdentity.fp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TexturedIdentity.fp; sourceTree = "<group>"; };
+		56E508AD233B7B5900165EBB /* demo_test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = demo_test.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,10 +465,11 @@
 		0DDBD9BD230865520087A48A /* include */ = {
 			isa = PBXGroup;
 			children = (
-				0D3E2E832312170F00D4832D /* GLBatch.cpp */,
-				0D3E2E822312170E00D4832D /* GLShaderManager.cpp */,
-				0D3E2E842312170F00D4832D /* GLTools.cpp */,
-				0D3E2E812312170E00D4832D /* GLTriangleBatch.cpp */,
+				56E5080B233B76D800165EBB /* GLBatch.cpp */,
+				56E5080F233B76D800165EBB /* GLShaderManager.cpp */,
+				56E5080C233B76D800165EBB /* GLTools.cpp */,
+				56E5080E233B76D800165EBB /* GLTriangleBatch.cpp */,
+				56E5080D233B76D800165EBB /* math3d.cpp */,
 				0DDBD9CB230865520087A48A /* GL */,
 				0DDBD9CF230865520087A48A /* GLBatch.h */,
 				0DDBD9D0230865520087A48A /* GLBatchBase.h */,
@@ -345,7 +480,6 @@
 				0DDBD9D5230865520087A48A /* GLShaderManager.h */,
 				0DDBD9D6230865520087A48A /* GLTools.h */,
 				0DDBD9D7230865520087A48A /* GLTriangleBatch.h */,
-				0DDBD9D8230865520087A48A /* math3d.cpp */,
 				0DDBD9D9230865520087A48A /* math3d.h */,
 				0DDBD9DA230865520087A48A /* StopWatch.h */,
 			);
@@ -404,6 +538,7 @@
 				0DDBDA06230865520087A48A /* chapt03 */,
 				0DDBDA1F230865520087A48A /* chapt04 */,
 				0D00FF0E231C19B000A6DE1E /* chapt05 */,
+				563EF16A233B194A008CF9AE /* chapt06 */,
 				0DDBDA31230865520087A48A /* test */,
 			);
 			path = src;
@@ -664,8 +799,242 @@
 			children = (
 				0DDBDA32230865520087A48A /* glut_double_test.cpp */,
 				0D4088BB231ABF2F004B88FB /* GlutQuadsDemo.cpp */,
+				56E508AD233B7B5900165EBB /* demo_test.cpp */,
 			);
 			path = test;
+			sourceTree = "<group>";
+		};
+		563EF16A233B194A008CF9AE /* chapt06 */ = {
+			isa = PBXGroup;
+			children = (
+				56E50822233B796300165EBB /* ADSGouraud */,
+				56E5082A233B796300165EBB /* ADSGouraud_jingz */,
+				56E50855233B796300165EBB /* ADSPhong */,
+				56E5085D233B796300165EBB /* ADSPhong_jingz */,
+				56E50836233B796300165EBB /* DiffuseLight */,
+				56E5082E233B796300165EBB /* DiffuseLight_jingz */,
+				56E50819233B796300165EBB /* Dissolve */,
+				56E50850233B796300165EBB /* Dissolve_jingz */,
+				56E50832233B796300165EBB /* FlatShader */,
+				56E5083A233B796300165EBB /* FlatShader_jingz */,
+				56E50861233B796300165EBB /* LitTexture */,
+				56E50843233B796300165EBB /* Littexture_jingz */,
+				56E5081E233B796300165EBB /* ProvokingVertex */,
+				56E50859233B796300165EBB /* ShadedTriangle */,
+				56E50848233B796300165EBB /* ShadedTriangle_jingz */,
+				56E50866233B796400165EBB /* TexturedTriangle */,
+				56E5083E233B796300165EBB /* TexturedTriangle_jingz */,
+				56E5084C233B796300165EBB /* ToonShader */,
+				56E50815233B796200165EBB /* ToonShader_jingz */,
+				56E50826233B796300165EBB /* Triangle */,
+			);
+			path = chapt06;
+			sourceTree = "<group>";
+		};
+		56E50815233B796200165EBB /* ToonShader_jingz */ = {
+			isa = PBXGroup;
+			children = (
+				56E50816233B796200165EBB /* toonShader.vp */,
+				56E50817233B796200165EBB /* toonShader.fp */,
+				56E50818233B796200165EBB /* ToonShader.cpp */,
+			);
+			path = ToonShader_jingz;
+			sourceTree = "<group>";
+		};
+		56E50819233B796300165EBB /* Dissolve */ = {
+			isa = PBXGroup;
+			children = (
+				56E5081A233B796300165EBB /* Dissolve.cpp */,
+				56E5081B233B796300165EBB /* Dissolve.vp */,
+				56E5081C233B796300165EBB /* Clouds.tga */,
+				56E5081D233B796300165EBB /* Dissolve.fp */,
+			);
+			path = Dissolve;
+			sourceTree = "<group>";
+		};
+		56E5081E233B796300165EBB /* ProvokingVertex */ = {
+			isa = PBXGroup;
+			children = (
+				56E5081F233B796300165EBB /* ProvokingVertex.vp */,
+				56E50820233B796300165EBB /* ProvokingVertex.fp */,
+				56E50821233B796300165EBB /* ProvokingVertex.cpp */,
+			);
+			path = ProvokingVertex;
+			sourceTree = "<group>";
+		};
+		56E50822233B796300165EBB /* ADSGouraud */ = {
+			isa = PBXGroup;
+			children = (
+				56E50823233B796300165EBB /* ADSGouraud.vp */,
+				56E50824233B796300165EBB /* ADSGouraud.cpp */,
+				56E50825233B796300165EBB /* ADSGouraud.fp */,
+			);
+			path = ADSGouraud;
+			sourceTree = "<group>";
+		};
+		56E50826233B796300165EBB /* Triangle */ = {
+			isa = PBXGroup;
+			children = (
+				56E50827233B796300165EBB /* Identity.vp */,
+				56E50828233B796300165EBB /* Triangle.cpp */,
+				56E50829233B796300165EBB /* Identity.fp */,
+			);
+			path = Triangle;
+			sourceTree = "<group>";
+		};
+		56E5082A233B796300165EBB /* ADSGouraud_jingz */ = {
+			isa = PBXGroup;
+			children = (
+				56E5082B233B796300165EBB /* ADSGouraud.vp */,
+				56E5082C233B796300165EBB /* ADSGouraud.cpp */,
+				56E5082D233B796300165EBB /* ADSGouraud.fp */,
+			);
+			path = ADSGouraud_jingz;
+			sourceTree = "<group>";
+		};
+		56E5082E233B796300165EBB /* DiffuseLight_jingz */ = {
+			isa = PBXGroup;
+			children = (
+				56E5082F233B796300165EBB /* DiffuseLight.cpp */,
+				56E50830233B796300165EBB /* DiffuseLight.fp */,
+				56E50831233B796300165EBB /* DiffuseLight.vp */,
+			);
+			path = DiffuseLight_jingz;
+			sourceTree = "<group>";
+		};
+		56E50832233B796300165EBB /* FlatShader */ = {
+			isa = PBXGroup;
+			children = (
+				56E50833233B796300165EBB /* FlatShader.vp */,
+				56E50834233B796300165EBB /* FlatShader.cpp */,
+				56E50835233B796300165EBB /* FlatShader.fp */,
+			);
+			path = FlatShader;
+			sourceTree = "<group>";
+		};
+		56E50836233B796300165EBB /* DiffuseLight */ = {
+			isa = PBXGroup;
+			children = (
+				56E50837233B796300165EBB /* DiffuseLight.cpp */,
+				56E50838233B796300165EBB /* DiffuseLight.fp */,
+				56E50839233B796300165EBB /* DiffuseLight.vp */,
+			);
+			path = DiffuseLight;
+			sourceTree = "<group>";
+		};
+		56E5083A233B796300165EBB /* FlatShader_jingz */ = {
+			isa = PBXGroup;
+			children = (
+				56E5083B233B796300165EBB /* FlatShader.vp */,
+				56E5083C233B796300165EBB /* FlatShader_jingz.cpp */,
+				56E5083D233B796300165EBB /* FlatShader.fp */,
+			);
+			path = FlatShader_jingz;
+			sourceTree = "<group>";
+		};
+		56E5083E233B796300165EBB /* TexturedTriangle_jingz */ = {
+			isa = PBXGroup;
+			children = (
+				56E5083F233B796300165EBB /* TexturedIdentity.vp */,
+				56E50840233B796300165EBB /* stone.tga */,
+				56E50841233B796300165EBB /* TexturedTriangle.cpp */,
+				56E50842233B796300165EBB /* TexturedIdentity.fp */,
+			);
+			path = TexturedTriangle_jingz;
+			sourceTree = "<group>";
+		};
+		56E50843233B796300165EBB /* Littexture_jingz */ = {
+			isa = PBXGroup;
+			children = (
+				56E50844233B796300165EBB /* LitTexture.vp */,
+				56E50845233B796300165EBB /* CoolTexture.tga */,
+				56E50846233B796300165EBB /* LitTexture.fp */,
+				56E50847233B796300165EBB /* LitTexture.cpp */,
+			);
+			path = Littexture_jingz;
+			sourceTree = "<group>";
+		};
+		56E50848233B796300165EBB /* ShadedTriangle_jingz */ = {
+			isa = PBXGroup;
+			children = (
+				56E50849233B796300165EBB /* ShadedTriangle.cpp */,
+				56E5084A233B796300165EBB /* ShadedTriangle.fp */,
+				56E5084B233B796300165EBB /* ShadedTriangle.vp */,
+			);
+			path = ShadedTriangle_jingz;
+			sourceTree = "<group>";
+		};
+		56E5084C233B796300165EBB /* ToonShader */ = {
+			isa = PBXGroup;
+			children = (
+				56E5084D233B796300165EBB /* ToonShader.vp */,
+				56E5084E233B796300165EBB /* ToonShader.fp */,
+				56E5084F233B796300165EBB /* ToonShader.cpp */,
+			);
+			path = ToonShader;
+			sourceTree = "<group>";
+		};
+		56E50850233B796300165EBB /* Dissolve_jingz */ = {
+			isa = PBXGroup;
+			children = (
+				56E50851233B796300165EBB /* Dissolve.cpp */,
+				56E50852233B796300165EBB /* Dissolve.vp */,
+				56E50853233B796300165EBB /* Clouds.tga */,
+				56E50854233B796300165EBB /* Dissolve.fp */,
+			);
+			path = Dissolve_jingz;
+			sourceTree = "<group>";
+		};
+		56E50855233B796300165EBB /* ADSPhong */ = {
+			isa = PBXGroup;
+			children = (
+				56E50856233B796300165EBB /* ADSPhong.fp */,
+				56E50857233B796300165EBB /* ADSPhong.vp */,
+				56E50858233B796300165EBB /* ADSPhong.cpp */,
+			);
+			path = ADSPhong;
+			sourceTree = "<group>";
+		};
+		56E50859233B796300165EBB /* ShadedTriangle */ = {
+			isa = PBXGroup;
+			children = (
+				56E5085A233B796300165EBB /* ShadedIdentity.fp */,
+				56E5085B233B796300165EBB /* ShadedTriangle.cpp */,
+				56E5085C233B796300165EBB /* ShadedIdentity.vp */,
+			);
+			path = ShadedTriangle;
+			sourceTree = "<group>";
+		};
+		56E5085D233B796300165EBB /* ADSPhong_jingz */ = {
+			isa = PBXGroup;
+			children = (
+				56E5085E233B796300165EBB /* ADSPhong.fp */,
+				56E5085F233B796300165EBB /* ADSPhong.vp */,
+				56E50860233B796300165EBB /* ADSPhong.cpp */,
+			);
+			path = ADSPhong_jingz;
+			sourceTree = "<group>";
+		};
+		56E50861233B796300165EBB /* LitTexture */ = {
+			isa = PBXGroup;
+			children = (
+				56E50862233B796300165EBB /* ADSTexture.fp */,
+				56E50863233B796300165EBB /* CoolTexture.tga */,
+				56E50864233B796300165EBB /* LitTexture.cpp */,
+				56E50865233B796300165EBB /* ADSTexture.vp */,
+			);
+			path = LitTexture;
+			sourceTree = "<group>";
+		};
+		56E50866233B796400165EBB /* TexturedTriangle */ = {
+			isa = PBXGroup;
+			children = (
+				56E50867233B796400165EBB /* TexturedIdentity.vp */,
+				56E50868233B796400165EBB /* stone.tga */,
+				56E50869233B796400165EBB /* TexturedTriangle.cpp */,
+				56E5086A233B796400165EBB /* TexturedIdentity.fp */,
+			);
+			path = TexturedTriangle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -728,16 +1097,62 @@
 			files = (
 				0DDBDA44230865530087A48A /* MoonLike.tga in Resources */,
 				0DDBDA59230865530087A48A /* floor.tga in Resources */,
+				56E5089F233B796400165EBB /* ShadedIdentity.fp in Resources */,
 				0DDBDA58230865530087A48A /* Block6.tga in Resources */,
+				56E50885233B796400165EBB /* DiffuseLight.fp in Resources */,
+				56E5088A233B796400165EBB /* TexturedIdentity.vp in Resources */,
+				56E508A9233B796400165EBB /* TexturedIdentity.vp in Resources */,
+				56E50872233B796400165EBB /* ProvokingVertex.vp in Resources */,
+				56E5089B233B796400165EBB /* Dissolve.fp in Resources */,
+				56E5087A233B796400165EBB /* Identity.fp in Resources */,
+				56E50875233B796400165EBB /* ADSGouraud.vp in Resources */,
+				56E50880233B796400165EBB /* DiffuseLight.vp in Resources */,
+				56E50871233B796400165EBB /* Dissolve.fp in Resources */,
 				0DDBDA56230865530087A48A /* Block4.tga in Resources */,
+				56E508A6233B796400165EBB /* CoolTexture.tga in Resources */,
 				0DDBDA3D230865530087A48A /* brick.tga in Resources */,
+				56E50893233B796400165EBB /* ShadedTriangle.fp in Resources */,
+				56E5086B233B796400165EBB /* toonShader.vp in Resources */,
 				0DDBDA57230865530087A48A /* Block5.tga in Resources */,
+				56E5088D233B796400165EBB /* TexturedIdentity.fp in Resources */,
+				56E5088F233B796400165EBB /* CoolTexture.tga in Resources */,
+				56E508A5233B796400165EBB /* ADSTexture.fp in Resources */,
+				56E50877233B796400165EBB /* ADSGouraud.fp in Resources */,
+				56E50895233B796400165EBB /* ToonShader.vp in Resources */,
+				56E5086F233B796400165EBB /* Dissolve.vp in Resources */,
+				56E508AA233B796400165EBB /* stone.tga in Resources */,
+				56E5087D233B796400165EBB /* ADSGouraud.fp in Resources */,
 				56DC749F230D23CC006E240D /* README.md in Resources */,
+				56E5087F233B796400165EBB /* DiffuseLight.fp in Resources */,
+				56E50894233B796400165EBB /* ShadedTriangle.vp in Resources */,
+				56E5086C233B796400165EBB /* toonShader.fp in Resources */,
 				0DDBDA3E230865530087A48A /* ceiling.tga in Resources */,
+				56E5089C233B796400165EBB /* ADSPhong.fp in Resources */,
+				56E50886233B796400165EBB /* DiffuseLight.vp in Resources */,
+				56E5089A233B796400165EBB /* Clouds.tga in Resources */,
+				56E5087B233B796400165EBB /* ADSGouraud.vp in Resources */,
 				0DDBDA53230865530087A48A /* stone.tga in Resources */,
 				0DDBDA3F230865530087A48A /* floor.tga in Resources */,
+				56E50896233B796400165EBB /* ToonShader.fp in Resources */,
+				56E5088B233B796400165EBB /* stone.tga in Resources */,
+				56E5089D233B796400165EBB /* ADSPhong.vp in Resources */,
 				0DDBDA42230865530087A48A /* Marslike.tga in Resources */,
+				56E508AC233B796400165EBB /* TexturedIdentity.fp in Resources */,
+				56E50889233B796400165EBB /* FlatShader.fp in Resources */,
+				56E50881233B796400165EBB /* FlatShader.vp in Resources */,
+				56E5088E233B796400165EBB /* LitTexture.vp in Resources */,
+				56E50870233B796400165EBB /* Clouds.tga in Resources */,
+				56E508A8233B796400165EBB /* ADSTexture.vp in Resources */,
+				56E508A1233B796400165EBB /* ShadedIdentity.vp in Resources */,
+				56E508A3233B796400165EBB /* ADSPhong.vp in Resources */,
+				56E50890233B796400165EBB /* LitTexture.fp in Resources */,
+				56E508A2233B796400165EBB /* ADSPhong.fp in Resources */,
+				56E50873233B796400165EBB /* ProvokingVertex.fp in Resources */,
 				0DDBDA41230865530087A48A /* Marble.tga in Resources */,
+				56E50899233B796400165EBB /* Dissolve.vp in Resources */,
+				56E50883233B796400165EBB /* FlatShader.fp in Resources */,
+				56E50878233B796400165EBB /* Identity.vp in Resources */,
+				56E50887233B796400165EBB /* FlatShader.vp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,18 +1164,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DDBDA4B230865530087A48A /* pyramid.cpp in Sources */,
-				0D3E2E852312170F00D4832D /* GLTriangleBatch.cpp in Sources */,
+				56E508AB233B796400165EBB /* TexturedTriangle.cpp in Sources */,
 				0DDBDA47230865530087A48A /* objects.cpp in Sources */,
+				56E508A0233B796400165EBB /* ShadedTriangle.cpp in Sources */,
 				0D00FF1A231C1C5600A6DE1E /* shinyjet.cpp in Sources */,
 				0DDBDA4D230865530087A48A /* smoother.cpp in Sources */,
-				0D3E2E862312170F00D4832D /* GLShaderManager.cpp in Sources */,
 				0D00FF1D231C1CB300A6DE1E /* shadow.cpp in Sources */,
 				0DDBDA46230865530087A48A /* movebymatrix.cpp in Sources */,
 				0DDBDA54230865530087A48A /* tunnel.cpp in Sources */,
 				0D00FF14231C1AC700A6DE1E /* spot.cpp in Sources */,
+				56E5088C233B796400165EBB /* TexturedTriangle.cpp in Sources */,
 				0DDBDA60230865530087A48A /* lstipple.cpp in Sources */,
 				0DDBDA50230865530087A48A /* sphere3.cpp in Sources */,
 				0D00FF17231C1B3700A6DE1E /* sphereworld.cpp in Sources */,
+				56E5087E233B796400165EBB /* DiffuseLight.cpp in Sources */,
+				56E50879233B796400165EBB /* Triangle.cpp in Sources */,
 				0DDBDA6F230865530087A48A /* sphereworld.cpp in Sources */,
 				0DDBDA4E230865530087A48A /* sphere1.cpp in Sources */,
 				0D00FF20231C1D0800A6DE1E /* litjet.cpp in Sources */,
@@ -769,47 +1187,65 @@
 				0DDBDA5C230865530087A48A /* simple.cpp in Sources */,
 				0DDBDA71230865530087A48A /* transform.cpp in Sources */,
 				0DDBDA67230865530087A48A /* star.cpp in Sources */,
-				0DDBDA3A230865530087A48A /* math3d.cpp in Sources */,
 				0DDBDA55230865530087A48A /* Block.cpp in Sources */,
 				0DDBDA65230865530087A48A /* scissor.cpp in Sources */,
+				56E5087C233B796400165EBB /* ADSGouraud.cpp in Sources */,
+				56E50812233B76D900165EBB /* math3d.cpp in Sources */,
 				0DDBDA5E230865530087A48A /* lines.cpp in Sources */,
 				0DDBDA3B230865530087A48A /* anisotropic.cpp in Sources */,
 				0DDBDA68230865530087A48A /* stencil.cpp in Sources */,
 				0DDBDA6A230865530087A48A /* Atom.cpp in Sources */,
 				0DDBDA33230865530087A48A /* main.cpp in Sources */,
 				0DDBDA49230865530087A48A /* perspective.cpp in Sources */,
-				0D3E2E872312170F00D4832D /* GLBatch.cpp in Sources */,
 				0DDBDA5A230865530087A48A /* bounce.cpp in Sources */,
 				0DDBDA45230865530087A48A /* move.cpp in Sources */,
 				0DDBDA52230865530087A48A /* sphere5.cpp in Sources */,
 				0DDBDA73230865530087A48A /* glut_double_test.cpp in Sources */,
 				0DDBDA63230865530087A48A /* pointsz.cpp in Sources */,
+				56E50897233B796400165EBB /* ToonShader.cpp in Sources */,
 				0D00FF26231C1D8A00A6DE1E /* ccube.cpp in Sources */,
+				56E50892233B796400165EBB /* ShadedTriangle.cpp in Sources */,
+				56E50814233B76D900165EBB /* GLShaderManager.cpp in Sources */,
 				0D00FF29231C1DD300A6DE1E /* ambient.cpp in Sources */,
+				56E5089E233B796400165EBB /* ADSPhong.cpp in Sources */,
+				56E50884233B796400165EBB /* DiffuseLight.cpp in Sources */,
 				0DDBDA64230865530087A48A /* pstipple.cpp in Sources */,
 				0DDBDA48230865530087A48A /* orthographic.cpp in Sources */,
 				0DDBDA51230865530087A48A /* sphere4.cpp in Sources */,
 				0DDBDA6C230865530087A48A /* ortho.cpp in Sources */,
+				56E50810233B76D800165EBB /* GLBatch.cpp in Sources */,
 				0DDBDA72230865530087A48A /* transformgl.cpp in Sources */,
 				0DDBDA40230865530087A48A /* geotest.cpp in Sources */,
 				0DDBDA6B230865530087A48A /* atom2.cpp in Sources */,
+				56E508A7233B796400165EBB /* LitTexture.cpp in Sources */,
 				0DDBDA5F230865530087A48A /* linesw.cpp in Sources */,
-				0D3E2E882312170F00D4832D /* GLTools.cpp in Sources */,
 				0DDBDA43230865530087A48A /* modelview_projection.cpp in Sources */,
+				56E50813233B76D900165EBB /* GLTriangleBatch.cpp in Sources */,
 				0D4088BC231ABF2F004B88FB /* GlutQuadsDemo.cpp in Sources */,
 				0D00FF23231C1D5400A6DE1E /* jet.cpp in Sources */,
 				0DDBDA5B230865530087A48A /* glrect.cpp in Sources */,
 				0D00FF11231C1A0E00A6DE1E /* triangle.cpp in Sources */,
+				56E508AE233B7B5900165EBB /* demo_test.cpp in Sources */,
+				56E508A4233B796400165EBB /* ADSPhong.cpp in Sources */,
 				0DDBDA4C230865530087A48A /* scissor.cpp in Sources */,
 				0DDBDA6D230865530087A48A /* perspect.cpp in Sources */,
+				56E50882233B796400165EBB /* FlatShader.cpp in Sources */,
+				56E50891233B796400165EBB /* LitTexture.cpp in Sources */,
 				0DDBDA4A230865530087A48A /* primitives.cpp in Sources */,
+				56E5086D233B796400165EBB /* ToonShader.cpp in Sources */,
 				0DDBDA70230865530087A48A /* test.cpp in Sources */,
+				56E50811233B76D900165EBB /* GLTools.cpp in Sources */,
+				56E50876233B796400165EBB /* ADSGouraud.cpp in Sources */,
 				0DDBDA69230865530087A48A /* triangle.cpp in Sources */,
 				0DDBDA5D230865530087A48A /* test03.cpp in Sources */,
+				56E50874233B796400165EBB /* ProvokingVertex.cpp in Sources */,
 				0DDBDA6E230865530087A48A /* solar.cpp in Sources */,
 				0DDBDA62230865530087A48A /* points.cpp in Sources */,
 				0DDBDA4F230865530087A48A /* sphere2.cpp in Sources */,
 				0DDBDA61230865530087A48A /* lstrips.cpp in Sources */,
+				56E50888233B796400165EBB /* FlatShader_jingz.cpp in Sources */,
+				56E5086E233B796400165EBB /* Dissolve.cpp in Sources */,
+				56E50898233B796400165EBB /* Dissolve.cpp in Sources */,
 				0DDBDA752308FB730087A48A /* first.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

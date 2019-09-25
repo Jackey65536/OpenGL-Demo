@@ -570,7 +570,10 @@ GLuint GLShaderManager::LoadShaderPairSrc(const char *szName, const char *szVert
 
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////
-// Load the shader file, with the supplied named attributes
+// 加载一个着色器，进行编译并连接到一起
+// 为每个着色器指定完整的源文件
+// 在着色器名之后，指定参数数量，然后指定索引和每个参数的参数名
+// eg: LoadShaderPairWithAttributes("Identity.vp", "Identity.fp", 2, GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_COLOR, "vColor")
 GLuint GLShaderManager::LoadShaderPairWithAttributes(const char *szVertexProgFileName, const char *szFragmentProgFileName, ...)
 	{
 	// Check for duplicate
@@ -580,23 +583,25 @@ GLuint GLShaderManager::LoadShaderPairWithAttributes(const char *szVertexProgFil
 
 	SHADERLOOKUPETRY shaderEntry;
 
-    // Temporary Shader objects
+    // 临时着色器ID
     GLuint hVertexShader;
-    GLuint hFragmentShader;   
+    GLuint hFragmentShader;
+    // 存储检查编译器是否成功的结果
     GLint testVal;
 	
-    // Create shader objects
+    // 创建着色器对象
     hVertexShader = glCreateShader(GL_VERTEX_SHADER);
     hFragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 	
     // Load them. If fail clean up and return null
-    if(gltLoadShaderFile(szVertexProgFileName, hVertexShader) == false)
+    // 顶点程序
+    if(gltLoadShaderFile(szVertexProgFileName, hVertexShader) == false) // 加载着色器源代码
 		{
         glDeleteShader(hVertexShader);
         glDeleteShader(hFragmentShader);
         return 0;
 		}
-	
+	// 片段程序
     if(gltLoadShaderFile(szFragmentProgFileName, hFragmentShader) == false)
 		{
         glDeleteShader(hVertexShader);
@@ -604,11 +609,11 @@ GLuint GLShaderManager::LoadShaderPairWithAttributes(const char *szVertexProgFil
         return 0;
 		}
     
-    // Compile them
+    // 对两者进行编译
     glCompileShader(hVertexShader);
     glCompileShader(hFragmentShader);
     
-    // Check for errors
+    // 在顶点着色器中检查错误，返回值存储于testVal
     glGetShaderiv(hVertexShader, GL_COMPILE_STATUS, &testVal);
     if(testVal == GL_FALSE)
 		{
@@ -616,7 +621,7 @@ GLuint GLShaderManager::LoadShaderPairWithAttributes(const char *szVertexProgFil
         glDeleteShader(hFragmentShader);
         return 0;
 		}
-    
+    // 在片段着色器中检查错误
     glGetShaderiv(hFragmentShader, GL_COMPILE_STATUS, &testVal);
     if(testVal == GL_FALSE)
 		{
@@ -625,13 +630,13 @@ GLuint GLShaderManager::LoadShaderPairWithAttributes(const char *szVertexProgFil
         return 0;
 		}
     
-    // Link them - assuming it works...
+    // 创建最终的着色器程序对象，并将顶点着色器和片段着色器与它绑定到一起
 	shaderEntry.uiShaderID = glCreateProgram();
     glAttachShader(shaderEntry.uiShaderID, hVertexShader);
     glAttachShader(shaderEntry.uiShaderID, hFragmentShader);
 
 
-	// List of attributes
+	// 将参数名绑定到他们制定的参数位置列表上
 	va_list attributeList;
 	va_start(attributeList, szFragmentProgFileName);
 
@@ -641,14 +646,16 @@ GLuint GLShaderManager::LoadShaderPairWithAttributes(const char *szVertexProgFil
 		{
 		int index = va_arg(attributeList, int);
 		szNextArg = va_arg(attributeList, char*);
+        // 将属性变量名绑定到指定的数字属性位置
 		glBindAttribLocation(shaderEntry.uiShaderID, index, szNextArg);
 		}
 
 	va_end(attributeList);
 
+    // 连接着色器
     glLinkProgram(shaderEntry.uiShaderID);
 	
-    // These are no longer needed
+    // 这些都不在需要了
     glDeleteShader(hVertexShader);
     glDeleteShader(hFragmentShader);  
     
@@ -656,6 +663,7 @@ GLuint GLShaderManager::LoadShaderPairWithAttributes(const char *szVertexProgFil
     glGetProgramiv(shaderEntry.uiShaderID, GL_LINK_STATUS, &testVal);
     if(testVal == GL_FALSE)
 		{
+        // 删除着色器
 		glDeleteProgram(shaderEntry.uiShaderID);
 		return 0;
 		}

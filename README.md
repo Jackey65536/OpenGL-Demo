@@ -23,10 +23,11 @@
 #### 在2D笛卡尔坐标系统上，添加一个深度分量（z轴）
 
 ## 三、投影
-### 1、视景体（Viewing Volume）：3D场景投影到2D图像之间的区域，视景体之外的任何物体都不会被绘制
-### 1、正投影（Orthographic Projection）或平行投影
+### 1、视景体（Viewing Volume）
+#### 3D场景投影到2D图像之间的区域，视景体之外的任何物体都不会被绘制
+### 2、正投影（Orthographic Projection）或平行投影
 #### 实际带下相同的物体在屏幕上都具有相同的大小，不管他们是远是近。正投影的视景体是一个正方形或长方形
-### 2、透视投影（Perspective Projection）
+### 3、透视投影（Perspective Projection）
 #### 在这种投影中，视景体后面的物体看上去比前面的物体更小些（近大远小），它的视景体是一个梯形，叫做平截头体（Frustum）。当靠近视景体后部的物体被投影到视景体的前部时，他们看上去就显得比较小
 
 
@@ -126,9 +127,25 @@
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, fLargest);
 
 ## 六、纹理压缩
-### 1、压缩纹理
+### 1、加载压缩纹理
+    void glCompressedTexImage1D(GLenum target, GLint level, GLenum internalFormat, GLsizei width, GLint border, GLsizei imageSize, void *data);
+#### 相应的还有 glCompressedTexImage2D、glCompressedTexImage3D
 
-
+# 第六章 非存储着色器
+## 一、OpenGL 着色语言（GLSL）
+### GLSL 运行在图形硬件中
+### 1、变量和数据类型
+#### 整数（int、uint）、浮点数（float）、布尔值（bool）、向量类型、矩阵类型
+### 2、存储限定符
+#### <none> 只是普通的本地变量，外部不可见，外部不可访问
+#### const 一个c编译时常量，或者说是一个对函数来说为只读的参数
+#### in 一个从以前的阶段传递过来的变量
+#### in centroid 一个从以前的阶段传递过来的变量，使用质心插值
+#### out 传递到下一个处理阶段或者在一个函数中指定一个返回值
+#### out centroid 传递到下一个处理阶段，使用质心插值
+#### inout 一个读/写变量，只能用于局部函数参数
+#### uniform 一个从客户端代码传递过来的变量，在顶点之间不做改变
+#### 除非正在对一个多重采样缓冲区进行渲染，否则 centroid 限定符不会起任何作用。
 
 
 

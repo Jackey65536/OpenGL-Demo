@@ -597,6 +597,7 @@ typedef char GLchar;
 #define GL_TEXTURE_WIDTH 0x1000
 #define GL_TRANSFORM_BIT 0x00001000
 #define GL_TEXTURE_HEIGHT 0x1001
+// 所使用的压缩格式
 #define GL_TEXTURE_INTERNAL_FORMAT 0x1003
 #define GL_TEXTURE_BORDER_COLOR 0x1004
 #define GL_TEXTURE_BORDER 0x1005
@@ -973,6 +974,7 @@ GLAPI void GLAPIENTRY glFrontFace (GLenum mode);
 GLAPI void GLAPIENTRY glFrustum (GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar);
 GLAPI GLuint GLAPIENTRY glGenLists (GLsizei range);
 /*
+ 根据纹理参数返回n个纹理索引。
  n: 纹理对象的数量
  textures: 纹理对象的指针，指向一个无符号整形数组
  */
@@ -1002,10 +1004,12 @@ GLAPI void GLAPIENTRY glGetTexGendv (GLenum coord, GLenum pname, GLdouble *param
 GLAPI void GLAPIENTRY glGetTexGenfv (GLenum coord, GLenum pname, GLfloat *params);
 GLAPI void GLAPIENTRY glGetTexGeniv (GLenum coord, GLenum pname, GLint *params);
 GLAPI void GLAPIENTRY glGetTexImage (GLenum target, GLint level, GLenum format, GLenum type, GLvoid *pixels);
+// 判断是否被压缩，提取压缩纹理格式
 GLAPI void GLAPIENTRY glGetTexLevelParameterfv (GLenum target, GLint level, GLenum pname, GLfloat *params);
 GLAPI void GLAPIENTRY glGetTexLevelParameteriv (GLenum target, GLint level, GLenum pname, GLint *params);
 GLAPI void GLAPIENTRY glGetTexParameterfv (GLenum target, GLenum pname, GLfloat *params);
 GLAPI void GLAPIENTRY glGetTexParameteriv (GLenum target, GLenum pname, GLint *params);
+// 允许我们指定关心渲染速度还是输出质量
 GLAPI void GLAPIENTRY glHint (GLenum target, GLenum mode);
 GLAPI void GLAPIENTRY glIndexMask (GLuint mask);
 GLAPI void GLAPIENTRY glIndexPointer (GLenum type, GLsizei stride, const GLvoid *pointer);
@@ -1398,6 +1402,7 @@ typedef void (GLAPIENTRY * PFNGLTEXSUBIMAGE3DPROC) (GLenum target, GLint level, 
 #define GL_COMPRESSED_INTENSITY 0x84EC
 #define GL_COMPRESSED_RGB 0x84ED
 #define GL_COMPRESSED_RGBA 0x84EE
+// 纹理压缩提示的值
 #define GL_TEXTURE_COMPRESSION_HINT 0x84EF
 #define GL_NORMAL_MAP 0x8511
 #define GL_REFLECTION_MAP 0x8512
@@ -1432,9 +1437,13 @@ typedef void (GLAPIENTRY * PFNGLTEXSUBIMAGE3DPROC) (GLenum target, GLint level, 
 #define GL_OPERAND0_ALPHA 0x8598
 #define GL_OPERAND1_ALPHA 0x8599
 #define GL_OPERAND2_ALPHA 0x859A
+// 压缩后纹理大小（以字节为单位）
 #define GL_TEXTURE_COMPRESSED_IMAGE_SIZE 0x86A0
+// 是否被压缩
 #define GL_TEXTURE_COMPRESSED 0x86A1
+// 受支持的压缩纹理格式的数量
 #define GL_NUM_COMPRESSED_TEXTURE_FORMATS 0x86A2
+// 一个包含了一些常量值得数组，每个常量值对应于一种受支持的压缩纹理格式
 #define GL_COMPRESSED_TEXTURE_FORMATS 0x86A3
 #define GL_DOT3_RGB 0x86AE
 #define GL_DOT3_RGBA 0x86AF
@@ -8956,9 +8965,13 @@ typedef void (GLAPIENTRY * PFNGLTEXBUFFEREXTPROC) (GLenum target, GLenum interna
 #ifndef GL_EXT_texture_compression_s3tc
 #define GL_EXT_texture_compression_s3tc 1
 
+// RGB 数据被压缩，alpha 值始终是 1.0
 #define GL_COMPRESSED_RGB_S3TC_DXT1_EXT 0x83F0
+// RGB 数据被压缩，alpha 是 1.0 或 0.0
 #define GL_COMPRESSED_RGBA_S3TC_DXT1_EXT 0x83F1
+// RGB 数据被压缩，alpha 值使用 4 位存储
 #define GL_COMPRESSED_RGBA_S3TC_DXT3_EXT 0x83F2
+// RGB 数据被压缩，alpha 值是一些 8 位值得加权平均值
 #define GL_COMPRESSED_RGBA_S3TC_DXT5_EXT 0x83F3
 
 #define GLEW_EXT_texture_compression_s3tc GLEW_GET_VAR(__GLEW_EXT_texture_compression_s3tc)

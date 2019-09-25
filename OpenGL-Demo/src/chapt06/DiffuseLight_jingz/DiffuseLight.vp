@@ -1,0 +1,36 @@
+#version 330
+
+//由上一个阶段输入每个顶点的位置和向量
+//我还不明怎么输入这些数据个顶点着色器
+in vec4 vVertex;
+in vec3 vNormal;
+
+//设置常量属性供多次使用
+uniform vec4 diffuseColor; // 这里包含了球体的颜色
+uniform vec3 vLightPosition; // 向量的长度错误
+uniform mat4 mvpMatrix;
+uniform mat4 mvMatrix;
+uniform mat3 normalMatrix;
+
+smooth out vec4 vVaryingColor;
+
+void main(void)
+{
+//重点在于理解normalMatrix这个常量，是怎么得到的？ 是由每次渲染前制定（即初始化的）
+// normalMatrix 是模型在世界坐标系中的朝向矩阵
+	//作用法线之后，法线就是其在世界坐标中的朝向
+	vec3 vEyeNormal = normalMatrix * vNormal;//?? 获取表面法线的视觉坐标？？
+
+	//顶点相对于世界原点的位置——即世界位置；mv是摄像机（画刷）到模型的3D定位作用矩阵
+	vec4 vPosition4 = mvMatrix * vVertex;
+	vec3 vPosition3 = vPosition4.xyz/vPosition4.w;
+
+	vec3 vLightDir = normalize(vLightPosition - vPosition3);//光源到顶点的向量,之前忘记归一化，导致球变色
+
+	float diff = max(0.0,dot(vEyeNormal,vLightDir));//忘记分号的错误也没有提示
+
+	vVaryingColor.rgb = diff * diffuseColor.rgb;
+	vVaryingColor.a = diffuseColor.a;
+
+	gl_Position = mvpMatrix * vVertex;
+}
