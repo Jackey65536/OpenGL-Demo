@@ -87,28 +87,19 @@ namespace Ch05 {
 // Chapter06
 namespace Ch06 {
     MAIN_SPACE(ADSGouraud)
-    MAIN_SPACE(ADSGouraud_jingz)
     MAIN_SPACE(ADSPhong)
-    MAIN_SPACE(ADSPhong_jingz)
     MAIN_SPACE(DiffuseLight)
-    MAIN_SPACE(DiffuseLight_jingz)
     MAIN_SPACE(Dissolve)
-    MAIN_SPACE(Dissolve_jingz)
     MAIN_SPACE(FlatShader)
-    MAIN_SPACE(FlatShader_jingz)
     MAIN_SPACE(LitTexture)
-    MAIN_SPACE(Littexture_jingz)
     MAIN_SPACE(ProvokingVertex)
     MAIN_SPACE(ShadedTriangle)
-    MAIN_SPACE(ShadedTriangle_jingz)
     MAIN_SPACE(TexturedTriangle)
-    MAIN_SPACE(TexturedTriangle_jingz)
     MAIN_SPACE(ToonShader)
-    MAIN_SPACE(ToonShader_jingz)
     MAIN_SPACE(Triangle)
 }
 
 int main(int argc, char* argv[])
 {
-    return Demo::Sphere5::main(argc, argv);
+    return Ch06::TexturedTriangle::main(argc, argv);
 }
