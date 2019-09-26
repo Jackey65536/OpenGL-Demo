@@ -47,6 +47,7 @@
 ### 2、着色器（Shader）
 #### 简化来讲，分两阶段：顶点着色器 -> 片段着色器
 #### 顶点着色器处理从客户机输入的数据，应用变换，或者进行其他类型的数学运算来计算光照效果、位移、颜色值，等等。顶点着色器输出图元组合（Primitive Assembly），片段着色器会输出我们在屏幕上看到的最终颜色
+> 忽略一些高大上的新着色器只考虑顶点、几何、片段着色器，管线总结为：顶点数据（Vertex）> 顶点着色器（Vertex Shader）> 图元装配（Assembly）> 几何着色器（Geometry Shader）> 光栅化（Rasterization）> 片段着色器（Fragment Shader）> 逐片段处理（Per-Fragment Operations）> 帧缓冲区（FrameBuffer）。再经过双缓冲的交换（SwapBuffer），渲染内容就显示到了屏幕上。
 
 
 # 第四章 基础变换
@@ -146,7 +147,19 @@
 #### inout 一个读/写变量，只能用于局部函数参数
 #### uniform 一个从客户端代码传递过来的变量，在顶点之间不做改变
 #### 除非正在对一个多重采样缓冲区进行渲染，否则 centroid 限定符不会起任何作用。
-
+### 3、GLSL 代码格式
+    #version version_number
+    in type in_variable_name;
+    in type in_variable_name;
+    out type out_variable_name;
+    uniform type uniform_name;
+    int main()
+    {
+        // 处理输入并进行一些图形操作
+        ...
+        // 输出处理过的结果到输出变量
+        out_variable_name = weird_stuff_we_processed;
+    }
 
 
 

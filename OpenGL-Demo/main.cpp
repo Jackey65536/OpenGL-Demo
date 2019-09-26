@@ -101,5 +101,5 @@ namespace Ch06 {
 
 int main(int argc, char* argv[])
 {
-    return Ch06::TexturedTriangle::main(argc, argv);
+    return Demo::Sphere5::main(argc, argv);
 }

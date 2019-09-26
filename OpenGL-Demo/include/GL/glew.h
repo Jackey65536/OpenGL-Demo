@@ -863,6 +863,7 @@ GLAPI void GLAPIENTRY glAccum (GLenum op, GLfloat value);
 GLAPI void GLAPIENTRY glAlphaFunc (GLenum func, GLclampf ref);
 GLAPI GLboolean GLAPIENTRY glAreTexturesResident (GLsizei n, const GLuint *textures, GLboolean *residences);
 GLAPI void GLAPIENTRY glArrayElement (GLint i);
+// 图元数据开始
 GLAPI void GLAPIENTRY glBegin (GLenum mode);
 /*
  绑定纹理，绑定后，所有的纹理加载和纹理s参数设置只影响当前绑定的纹理对象
@@ -883,7 +884,7 @@ GLAPI void GLAPIENTRY glClearDepth (GLclampd depth);
 GLAPI void GLAPIENTRY glClearIndex (GLfloat c);
 GLAPI void GLAPIENTRY glClearStencil (GLint s);
 GLAPI void GLAPIENTRY glClipPlane (GLenum plane, const GLdouble *equation);
-// 用来设置画笔的颜色
+// 顶点颜色属性
 GLAPI void GLAPIENTRY glColor3b (GLbyte red, GLbyte green, GLbyte blue);
 GLAPI void GLAPIENTRY glColor3bv (const GLbyte *v);
 GLAPI void GLAPIENTRY glColor3d (GLdouble red, GLdouble green, GLdouble blue);
@@ -947,6 +948,7 @@ GLAPI void GLAPIENTRY glEdgeFlagPointer (GLsizei stride, const GLvoid *pointer);
 GLAPI void GLAPIENTRY glEdgeFlagv (const GLboolean *flag);
 GLAPI void GLAPIENTRY glEnable (GLenum cap);
 GLAPI void GLAPIENTRY glEnableClientState (GLenum array);
+// 图元数据结束
 GLAPI void GLAPIENTRY glEnd (void);
 GLAPI void GLAPIENTRY glEndList (void);
 GLAPI void GLAPIENTRY glEvalCoord1d (GLdouble u);
@@ -971,6 +973,7 @@ GLAPI void GLAPIENTRY glFogi (GLenum pname, GLint param);
 GLAPI void GLAPIENTRY glFogiv (GLenum pname, const GLint *params);
 // 控制多边形的正面是如何决定的，GL_CW：顶点顺序为顺时针方向的表面为正面，GL_CCW：逆时针方向为正面
 GLAPI void GLAPIENTRY glFrontFace (GLenum mode);
+// 在当前矩阵右边乘以透视投影矩阵
 GLAPI void GLAPIENTRY glFrustum (GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar);
 GLAPI GLuint GLAPIENTRY glGenLists (GLsizei range);
 /*
@@ -1043,8 +1046,9 @@ GLAPI void GLAPIENTRY glLightiv (GLenum light, GLenum pname, const GLint *params
 GLAPI void GLAPIENTRY glLineStipple (GLint factor, GLushort pattern);
 GLAPI void GLAPIENTRY glLineWidth (GLfloat width);
 GLAPI void GLAPIENTRY glListBase (GLuint base);
-// 恢复初始坐标系
+// 将当前矩阵设置为单位矩阵，即恢复初始坐标系
 GLAPI void GLAPIENTRY glLoadIdentity (void);
+// 在当前矩阵替换为指定矩阵（列优先）
 GLAPI void GLAPIENTRY glLoadMatrixd (const GLdouble *m);
 GLAPI void GLAPIENTRY glLoadMatrixf (const GLfloat *m);
 GLAPI void GLAPIENTRY glLoadName (GLuint name);
@@ -1063,9 +1067,11 @@ GLAPI void GLAPIENTRY glMateriali (GLenum face, GLenum pname, GLint param);
 GLAPI void GLAPIENTRY glMaterialiv (GLenum face, GLenum pname, const GLint *params);
 // 设置当前矩阵，对接下来要做什么进行一下声明
 GLAPI void GLAPIENTRY glMatrixMode (GLenum mode);
+// 在当前矩阵右边乘以参数指定矩阵（列优先）
 GLAPI void GLAPIENTRY glMultMatrixd (const GLdouble *m);
 GLAPI void GLAPIENTRY glMultMatrixf (const GLfloat *m);
 GLAPI void GLAPIENTRY glNewList (GLuint list, GLenum mode);
+// 顶点法向量
 GLAPI void GLAPIENTRY glNormal3b (GLbyte nx, GLbyte ny, GLbyte nz);
 GLAPI void GLAPIENTRY glNormal3bv (const GLbyte *v);
 GLAPI void GLAPIENTRY glNormal3d (GLdouble nx, GLdouble ny, GLdouble nz);
@@ -1077,6 +1083,7 @@ GLAPI void GLAPIENTRY glNormal3iv (const GLint *v);
 GLAPI void GLAPIENTRY glNormal3s (GLshort nx, GLshort ny, GLshort nz);
 GLAPI void GLAPIENTRY glNormal3sv (const GLshort *v);
 GLAPI void GLAPIENTRY glNormalPointer (GLenum type, GLsizei stride, const GLvoid *pointer);
+// 在当前矩阵右边乘以平行投影矩阵
 GLAPI void GLAPIENTRY glOrtho (GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar);
 GLAPI void GLAPIENTRY glPassThrough (GLfloat token);
 GLAPI void GLAPIENTRY glPixelMapfv (GLenum map, GLsizei mapsize, const GLfloat *values);
@@ -1145,6 +1152,7 @@ GLAPI void GLAPIENTRY glRectiv (const GLint *v1, const GLint *v2);
 GLAPI void GLAPIENTRY glRects (GLshort x1, GLshort y1, GLshort x2, GLshort y2);
 GLAPI void GLAPIENTRY glRectsv (const GLshort *v1, const GLshort *v2);
 GLAPI GLint GLAPIENTRY glRenderMode (GLenum mode);
+// 在当前矩阵右边乘以缩放矩阵，实现缩放
 GLAPI void GLAPIENTRY glRotated (GLdouble angle, GLdouble x, GLdouble y, GLdouble z);
 GLAPI void GLAPIENTRY glRotatef (GLfloat angle, GLfloat x, GLfloat y, GLfloat z);
 GLAPI void GLAPIENTRY glScaled (GLdouble x, GLdouble y, GLdouble z);
@@ -1157,6 +1165,7 @@ GLAPI void GLAPIENTRY glShadeModel (GLenum mode);
 GLAPI void GLAPIENTRY glStencilFunc (GLenum func, GLint ref, GLuint mask);
 GLAPI void GLAPIENTRY glStencilMask (GLuint mask);
 GLAPI void GLAPIENTRY glStencilOp (GLenum fail, GLenum zfail, GLenum zpass);
+// 顶点纹理坐标，原点位于图片左下角，宽和高范围[0,1]
 GLAPI void GLAPIENTRY glTexCoord1d (GLdouble s);
 GLAPI void GLAPIENTRY glTexCoord1dv (const GLdouble *v);
 GLAPI void GLAPIENTRY glTexCoord1f (GLfloat s);
@@ -1224,9 +1233,10 @@ GLAPI void GLAPIENTRY glTexParameteriv (GLenum target, GLenum pname, const GLint
 // width、height、depth 指定了“插入”到原来那个纹理中的新纹理的宽度、高度、深度
 GLAPI void GLAPIENTRY glTexSubImage1D (GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLenum type, const GLvoid *pixels);
 GLAPI void GLAPIENTRY glTexSubImage2D (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, const GLvoid *pixels);
-// 定义一个平移矩阵，该矩阵与当前矩阵相乘，使后续的图形进行平移变换
+// 定义一个平移矩阵，当前矩阵与该矩阵相乘，使后续的图形进行平移变换
 GLAPI void GLAPIENTRY glTranslated (GLdouble x, GLdouble y, GLdouble z);
 GLAPI void GLAPIENTRY glTranslatef (GLfloat x, GLfloat y, GLfloat z);
+// 顶点坐标
 GLAPI void GLAPIENTRY glVertex2d (GLdouble x, GLdouble y);
 GLAPI void GLAPIENTRY glVertex2dv (const GLdouble *v);
 GLAPI void GLAPIENTRY glVertex2f (GLfloat x, GLfloat y);
@@ -1646,6 +1656,7 @@ typedef void (GLAPIENTRY * PFNGLWINDOWPOS3SVPROC) (const GLshort *p);
 #define glFogCoordPointer GLEW_GET_FUN(__glewFogCoordPointer)
 #define glFogCoordd GLEW_GET_FUN(__glewFogCoordd)
 #define glFogCoorddv GLEW_GET_FUN(__glewFogCoorddv)
+// 顶点雾坐标
 #define glFogCoordf GLEW_GET_FUN(__glewFogCoordf)
 #define glFogCoordfv GLEW_GET_FUN(__glewFogCoordfv)
 #define glMultiDrawArrays GLEW_GET_FUN(__glewMultiDrawArrays)
