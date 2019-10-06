@@ -168,7 +168,7 @@
     }
 
 
-# 看完前六章了，立即渲染模式差不多了，开始学习核心模式，转战LearnOpenGL：https://learnopengl-cn
+# 看完前六章了，立即渲染模式差不多了，开始学习核心模式，转战LearnOpenGL：https://learnopengl-cn.github.io
 
 
 
