@@ -10,6 +10,12 @@
 #### 一个纹理就是一副用来贴到三角形或者多边形上的图片
 ### 4、混合（Blending）
 #### 混合时我们能够将不同的颜色混在一起
+### 5、立即渲染模式（Immediate mode，也就是固定渲染管线）
+### 6、核心模式（Core-profile）
+### 7、状态机（State Machine）
+#### OpenGL 自身是一个巨大的状态机，一系列的变量描述OpenGL此刻应当如何运行。
+### 8、上下文（Context）
+#### OpenGL的状态通常被称为OpenGL上下文，通常使用设置选项，操作缓冲来更改OpenGL状态，最后使用当前OpenGL上下文来渲染。
 #### OpenGL 自学网站 [http://ogldev.atspace.co.uk/www/tutorial01/tutorial01.html](http://ogldev.atspace.co.uk/www/tutorial01/tutorial01.html)
 
 ## 二、坐标系统
@@ -162,6 +168,7 @@
     }
 
 
+# 看完前六章了，立即渲染模式差不多了，开始学习核心模式，转战LearnOpenGL：https://learnopengl-cn
 
 
 
